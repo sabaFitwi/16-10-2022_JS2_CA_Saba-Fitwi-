@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content=" Login to get friends and create your post."
+    />
+    <link rel="stylesheet" href="/dist/css/style.css" />
+    <!-- -------------------------------fontAwsome----------------------------------------------------------- -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Login</title>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-white shadow fixed-top navColor"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <h1 class="text-white">Music Media</h1>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item px-3">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item px-3">
+              <a class="nav-link" href="profile.html">Profile</a>
+            </li>
+
+            <li class="nav-item nav-link">
+              <a
+                href="Login.html"
+                type="button"
+                class="btn btn-primary"
+                id="login"
+              >
+                Login
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="bg-image d-flex justify-content-between ms-5 align-items-center backgroundImage"
+      style="
+        background-image: url('images/front-bg.jpg');
+        background-position: top;
+        background-size: cover;
+        height: 100vh;
+      "
+    >
+      <form
+        id="loginForm"
+        class="bg-white shadow rounded p-3 mt-5 ms-5 input-group-lg"
+        ;
+      >
+        <input
+          id="newEmail"
+          type="email"
+          name="email"
+          class="form-control my-3"
+          placeholder=" Email "
+          required
+          pattern="^[\w\-.]+@(stud.)?noroff.no$"
+          title="only@(stud.)noroff.no domain allowed. Example (example@(stud.)noroff.no"
+        />
+        <input
+          id="newPassword"
+          type="password"
+          name="password"
+          class="form-control my-3"
+          placeholder="New password"
+          required
+          minlength="8"
+        />
+        <div class="error-message"></div>
+        <button id=" form1" class="btn btn-primary w-100 my-3" type="submit">
+          Log In
+        </button>
+
+        <a href="#" class="text-decoration-none text-center"
+          ><p>Forgotten password?</p></a
+        >
+
+        <hr />
+        <div class="text-center my-4">
+          <button
+            class="btn btn-success btn-lg"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#createModal"
+          >
+            Create New Account
+          </button>
+        </div>
+      </form>
+
+      <!-- create modal -->
+      <div
+        class="modal fade singUpForm"
+        id="createModal"
+        tabindex="-1"
+        aria-labelledby="createModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <!-- head -->
+            <div class="modal-header">
+              <div>
+                <h2 class="modal-title" id="exampleModalLabel">Sign Up</h2>
+              </div>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <!-- body -->
+            <div class="modal-body">
+              <form id="registerForm">
+                <div class="text-center" id="profileImage">
+                  <input
+                    id="avatarInput"
+                    type="url"
+                    name="avatar"
+                    class="rounded m-2"
+                    placeholder="Please provide an image URL"
+                  />
+                </div>
+
+                <!-- names -->
+
+                <div class="col">
+                  <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    placeholder="username"
+                    pattern="^[\w]+$"
+                    title="only upper and lowercase, numbers, and underscore  example(saba_sam123)"
+                    required
+                  />
+                </div>
+
+                <!-- email & pass -->
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  class="form-control my-3"
+                  placeholder=" Email "
+                  required
+                  pattern="^[\w\-.]+@(stud.)?noroff.no$"
+                  title="only@(stud.)noroff.no domain allowed. Example (example@(stud.)noroff.no"
+                />
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  class="form-control my-3"
+                  placeholder="New password"
+                  required
+                  minlength="8"
+                />
+
+                <div class="text-center">
+                  <input
+                    id="banner"
+                    type="url"
+                    name="banner"
+                    class="rounded m-2"
+                    placeholder="Please provide an image URL"
+                  />
+                </div>
+
+                <div class="text-center mt-3">
+                  <button type="submit" class="btn btn-success btn-lg">
+                    Sign Up
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script type="module" src="/js/register.mjs"></script>
+    <script type="module" src="/js/Login.mjs"></script>
+  </body>
+</html>
