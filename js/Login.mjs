@@ -1,4 +1,5 @@
 import { logInApi } from "./fetchApi.mjs";
+import * as storage from "./localStorage.mjs";
 // const userEmail = localStorage.getItem("userEmail");
 // const userPassword = localStorage.getItem("userPassword");
 // const errorMessage = document.querySelector(".error-message");
@@ -12,6 +13,7 @@ form.addEventListener("submit", (event) => {
   const user = {
     email: form.email.value,
     password: form.password.value,
+    //avatar: localStorage.getItem("userAvatar"),
   };
 
   console.log(user);
@@ -23,23 +25,13 @@ form.addEventListener("submit", (event) => {
         "Content-type": "application/json; charset=UTF-8",
       },
     };
-    fetch(logInApi, options)
-      .then((response) => response.json())
-      .then((user) => console.log({ user }));
+    const response = await fetch(logInApi, options);
+    const { accessToken, ...profile } = await response.json();
+    storage.save("token", accessToken);
+    storage.save("user", profile);
+    alert("you are logged in");
   }
   login(user);
-  // const options = {
-  //   method: "POST",
-  //   body: JSON.stringify(user),
-  //   headers: {
-  //     "Content-type": "application/json; charset=UTF-8",
-  //   },
-  // };
-
-  // fetch(logInApi, options)
-  //   .then((response) => response.json())
-  //   .then((user) => localStorage.setItem("user", user.accessToken));
-  // console.log({ user });
 
   // if (user.email == userEmail && user.password == userPassword) {
   //   window.location.href = "/profile.html";

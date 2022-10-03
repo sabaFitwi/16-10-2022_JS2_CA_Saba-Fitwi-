@@ -1,4 +1,5 @@
 import { registerApi } from "./fetchApi.mjs";
+//import * as storage from "./localStorage.mjs";
 // const userEmail = localStorage.getItem("userEmail");
 // const userPassword = localStorage.getItem("userPassword");
 // const errorMessage = document.querySelector(".error-message");
@@ -17,6 +18,8 @@ form.addEventListener("submit", (event) => {
     banner: form.banner.value,
   };
 
+  //const { name, email, password, avatar, banner } = user;
+
   console.log(user);
 
   async function register(user) {
@@ -27,12 +30,18 @@ form.addEventListener("submit", (event) => {
         "Content-type": "application/json; charset=UTF-8",
       },
     };
-    fetch(registerApi, options)
-      .then((response) => response.json())
-      .then((user) => console.log({ user }));
-    localStorage.setItem("user", user.avatar);
-    localStorage.setItem("userEmail", user.email);
-    localStorage.setItem("userPassword", user.password);
+    const response = await fetch(registerApi, options);
+    const result = await response.json();
+    alert("you are registered");
+
+    // await fetch(registerApi, options)
+    //   .then((response) => response.json())
+    //   .then((result) => console.log({ result }));
+    // localStorage.setItem("userEmail", email);
+    // localStorage.setItem("userAvatar", avatar);
+    // localStorage.setItem("userName", name);
+    // localStorage.setItem("userPassword", password);
+    return result;
   }
   register(user);
 

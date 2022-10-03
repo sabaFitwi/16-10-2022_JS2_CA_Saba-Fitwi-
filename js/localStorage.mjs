@@ -1,11 +1,14 @@
-const getAuthentication = localStorage.getItem("update");
-const bearer = "Bearer ";
-const accessToken = bearer + getAuthentication.slice(1, -1);
-console.log(accessToken);
-
-export const options = {
-  headers: {
-    "Content-type": "application/json; charset=UTF-8",
-    Authorization: accessToken,
-  },
-};
+export function save(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+export function load(key) {
+  try {
+    const value = localStorage.getItem(key);
+    return JSON.parse(value);
+  } catch {
+    return null;
+  }
+}
+export function remove(key) {
+  localStorage.removeItem(key);
+}
