@@ -259,20 +259,9 @@
 
         <!--========================================= Timeline ===================================---->
         <div class="col-12 col-lg-6 pb-5">
-          <div
-            class="d-flex flex-column justify-content-center w-100 mx-auto"
-            style="padding-top: 60px; max-width: 850px"
-          >
-            <div class="create-feeds"></div>
-          </div>
-        </div>
-
-        <!---================================== RIGHT SIDEBAR ==================================----------->
-
-        <section class="col-12 col-lg-3" style="padding-top: 100px">
-          <!--------------------------- Form to create a new post. --------------------------->
-          <div class="fixed-right">
-            <h5>Create Post</h5>
+          <!--mobile view-->
+          <div class="d-block d-lg-none mt-5">
+            <h5 class="pt-5">Create Post</h5>
 
             <div class="bg-white p-3 mt-3 rounded border shadow">
               <div class="d-flex" type="button">
@@ -288,21 +277,25 @@
                 <div>
                   <input
                     type="text"
+                    name="title"
                     id="postTitle"
                     class="form-control rounded-pill border-1 bg-gray pointer"
                     placeholder="Add your title"
+                    required
                   />
                   <textarea
                     type="text"
+                    name="body"
                     id="postBody"
                     class="form-control mt-3 border-1 bg-gray pointer"
                     placeholder="Add yor post/photos/videos"
+                    required
                   ></textarea>
                   <div class="file-input">
                     <input
                       id="file-input"
-                      type="text"
-                      name="file"
+                      type="url"
+                      name="media"
                       class="form-control rounded-pill border-1 bg-gray pointer mt-3"
                       placeholder="Link you image url"
                     />
@@ -345,6 +338,96 @@
                 </button>
               </div>
             </div>
+          </div>
+          <div
+            class="d-flex flex-column justify-content-center w-100 mx-auto"
+            style="padding-top: 60px; max-width: 850px"
+          >
+            <div class="create-feeds"></div>
+          </div>
+        </div>
+
+        <!---================================== RIGHT SIDEBAR ==================================----------->
+
+        <section class="col-12 col-lg-3" style="padding-top: 100px">
+          <!--------------------------- Form to create a new post. --------------------------->
+          <div class="fixed-right">
+            <div class="bg-white p-3 mt-3 rounded border shadow">
+              <div class="d-flex" type="button">
+                <div class="p-1">
+                  <img
+                    src="/images/profile.jpg"
+                    alt="avatar"
+                    class="rounded-circle me-2"
+                    id="postImage"
+                    style="width: 40px; height: 40px; object-fit: cover"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    name="title"
+                    id="postTitle"
+                    class="form-control rounded-pill border-1 bg-gray pointer"
+                    placeholder="Add your title"
+                    required
+                  />
+                  <textarea
+                    type="text"
+                    name="body"
+                    id="postBody"
+                    class="form-control mt-3 border-1 bg-gray pointer"
+                    placeholder="Add yor post/photos/videos"
+                    required
+                  ></textarea>
+                  <div class="file-input">
+                    <input
+                      id="file-input"
+                      type="url"
+                      name="media"
+                      class="form-control rounded-pill border-1 bg-gray pointer mt-3"
+                      placeholder="Link you image url"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-column flex-lg-row mt-3">
+                <div
+                  class="dropdown-item rounded d-flex align-items-center justify-content-center"
+                  type="button"
+                >
+                  <i class="fas fa-link me-2 text-primary"></i>
+                </div>
+
+                <div
+                  class="dropdown-item rounded d-flex align-items-center justify-content-center"
+                  type="button"
+                >
+                  <label for="file-input">
+                    <i
+                      class="fas fa-photo-video me-2 text-success image-button"
+                      style="cursor: pointer"
+                    ></i>
+                  </label>
+                </div>
+
+                <div
+                  class="dropdown-item rounded d-flex align-items-center justify-content-center"
+                  type="button"
+                >
+                  <i class="fas fa-smile me-2 text-warning"></i>
+                </div>
+                <hr />
+              </div>
+              <hr />
+              <div>
+                <button type="submit" id="post" class="btn btn-primary w-100">
+                  Post
+                </button>
+              </div>
+            </div>
+
             <div class="bg-white p-3 mt-3 rounded border shadow">
               <h5>Contact</h5>
               <hr class="mb-3" />
@@ -362,8 +445,9 @@
       type="module"
       src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     ></script>
-    <script type="module" src="/js/component/displayError.mjs"></script>
+    <!-- <script type="module" src="/js/component/displayError.mjs"></script>
     <script type="module" src="/js/contacts.mjs"></script>
-    <script type="module" src="/js/homePost.mjs"></script>
+    <script type="module" src="/js/viewPos.mjs"></script> -->
+    <script type="module" src="/js/viewPosts.mjs"></script>
   </body>
 </html>

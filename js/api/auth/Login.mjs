@@ -1,9 +1,11 @@
-import { logInApi } from "./fetchApi.mjs";
-import * as storage from "./localStorage.mjs";
+import { logInApi } from "../fetchApi.mjs";
+import * as storage from "../localStorage.mjs";
+import { update } from "../posts/update.mjs";
+
 // const userEmail = localStorage.getItem("userEmail");
 // const userPassword = localStorage.getItem("userPassword");
 // const errorMessage = document.querySelector(".error-message");
-
+update({ id: 413, title: "title update", body: "body title update" });
 const form = document.querySelector("#loginForm");
 
 form.addEventListener("submit", (event) => {

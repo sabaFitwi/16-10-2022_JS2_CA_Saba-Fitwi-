@@ -1,6 +1,6 @@
 import { accessToken as token } from "./authorization.mjs";
 import { singleProfileApi as api } from "./fetchApi.mjs";
-import { dateOptions as dateFormate } from "./dateConverter.mjs";
+import { dateOptions as dateFormate } from "../../dateConverter.mjs";
 
 const profileInput = document.querySelector(".profileInput");
 const singleProfilePost = document.querySelector(".singleProfilePost");

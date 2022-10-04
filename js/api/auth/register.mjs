@@ -1,4 +1,4 @@
-import { registerApi } from "./fetchApi.mjs";
+import { registerApi } from "../fetchApi.mjs";
 //import * as storage from "./localStorage.mjs";
 // const userEmail = localStorage.getItem("userEmail");
 // const userPassword = localStorage.getItem("userPassword");

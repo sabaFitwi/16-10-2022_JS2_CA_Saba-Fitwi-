@@ -1,10 +1,9 @@
-import { social_API_URL as API } from "./api/constants.mjs";
+import { social_API_URL as API } from "./constants.mjs";
 
-export const postsApi =
-  API + "/posts?_author=true&_comments=true&reactions=true";
-
-export const updatePostApi = API + "/posts/87";
-export const singleProfileApi = API + "/posts/";
+export const postsApi = API + "/posts";
+// export const createPostApi = API + "/posts";
+export const updatePostApi = API + "/posts/";
+// export const singleProfileApi = API + "/posts/";
 
 export const profileApi =
   API + "/profiles/saba_samuel?_posts=true&_following=true&_followers=true";
