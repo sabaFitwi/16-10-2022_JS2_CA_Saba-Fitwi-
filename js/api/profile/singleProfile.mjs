@@ -2,19 +2,18 @@ import { authFetch } from "../authFetch.mjs";
 import { postsApi } from "../fetchApi.mjs";
 //import { load } from "../localStorage.mjs";
 import { dateOptions as dateFormate } from "../../component/dateConverter.mjs";
-import { setUpdate } from "./update.mjs";
-//import * as post from "../posts/update.mjs";
+import { update } from "../posts/update.mjs";
+
 const profileInput = document.querySelector(".profileInput");
 const singlePost = document.querySelector(".singleProfile");
-
+const form = document.querySelector("#updatePost");
 //..................................................................................//
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 console.log(id);
-//const url = api + id + "?_author=true&_comments=true&_reactions=true";
-
-async function getSinglePost() {
+update(id);
+export async function getSinglePost() {
   try {
     const getPostApi =
       postsApi + `/${id}` + "?_author=true&_comments=true&_reactions=true";
@@ -31,7 +30,6 @@ async function getSinglePost() {
 
   function singleProfile(result) {
     let date = new Date(`${result.created}`);
-    console.log("hihih");
 
     singlePost.innerHTML += `<div class="bg-white p-4 rounded shadow mt-3 ">
           <div class="d-flex justify-content-between">

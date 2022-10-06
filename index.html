@@ -265,18 +265,11 @@
               <h5>Create post</h5>
               <hr />
               <div class="d-flex" type="button">
-                <div class="p-1">
-                  <img
-                    src="images/profile.jpg"
-                    alt="avatar"
-                    class="rounded-circle me-2 avatar-image"
-                  />
-                </div>
                 <input
                   type="text"
                   name="title"
                   class="form-control border-1 bg-gray pointer"
-                  placeholder="create your post, saba?"
+                  placeholder="Title"
                 />
               </div>
               <textarea
@@ -284,37 +277,18 @@
                 id="postBody"
                 name="body"
                 class="form-control mt-3 border-1 bg-gray pointer"
-                placeholder="Add yor post/photos/videos"
+                placeholder="Add body "
               ></textarea>
 
-              <!-- <div class="d-flex flex-row justify-content-end mt-3"> -->
-              <!--  <div class="mx-3" type="button">
-                  <i class="fas fa-video me-2 text-info"></i>
-                </div> -->
+              <input
+                id="file-input"
+                type="url"
+                name="media"
+                style="display: non"
+                class="form-control mt-3 border-1 bg-gray pointer"
+                placeholder="Add Image "
+              />
 
-              <div
-                class="mx-3 d-flex flex-row justify-content-end"
-                type="button"
-              >
-                <label for="file-input">
-                  <i
-                    class="fas fa-photo-video me-2 text-success"
-                    style="cursor: pointer"
-                  ></i>
-                </label>
-
-                <input
-                  id="file-input"
-                  type="url"
-                  name="media"
-                  style="display: non"
-                  class="form-control mt-3 border-1 bg-gray pointer"
-                />
-              </div>
-              <!-- <div class="mx-3">
-                  <i class="fas fa-smile me-2 text-info"></i>
-                </div> -->
-              <!-- </div> -->
               <hr />
               <div class="mx-3" type="button">
                 <button type="submit" class="btn btn-primary navColor w-100">
@@ -336,70 +310,6 @@
         <section class="col-12 col-lg-3" style="padding-top: 100px">
           <!--------------------------- Form to create a new post. --------------------------->
           <div class="fixed-right">
-            <!-- <div class="d-block d-lg-none mt-5">
-              <form class="bg-white p-3 mt-3 rounded border shadow post">
-                <h5>Create post</h5>
-                <hr />
-                <div class="d-flex" type="button">
-                  <div class="p-1">
-                    <img
-                      src="images/profile.jpg"
-                      alt="avatar"
-                      class="rounded-circle me-2 avatar-image"
-                    />
-                  </div>
-                  <input
-                    type="text"
-                    name="title"
-                    class="form-control border-1 bg-gray pointer"
-                    placeholder="create your post, saba?"
-                  />
-                </div>
-                <textarea
-                  type="text"
-                  id="postBody"
-                  name="body"
-                  class="form-control mt-3 border-1 bg-gray pointer"
-                  placeholder="Add yor post/photos/videos"
-                ></textarea>
-
-                <!-- <div class="d-flex flex-row justify-content-end mt-3"> -->
-            <!--  <div class="mx-3" type="button">
-                  <i class="fas fa-video me-2 text-info"></i>
-                </div> -->
-
-            <!-- <div
-                  class="mx-3 d-flex flex-row justify-content-end"
-                  type="button"
-                >
-                  <label for="file-input">
-                    <i
-                      class="fas fa-photo-video me-2 text-success"
-                      style="cursor: pointer"
-                    ></i>
-                  </label>
-
-                  <input
-                    id="file-input"
-                    type="url"
-                    name="media"
-                    style="display: non"
-                    class="form-control mt-3 border-1 bg-gray pointer"
-                  />
-                </div> -->
-            <!-- <div class="mx-3">
-                  <i class="fas fa-smile me-2 text-info"></i>
-                </div> -->
-            <!-- </div> -->
-            <!-- <hr />
-                <div class="mx-3" type="button">
-                  <button type="submit" class="btn btn-primary navColor w-100">
-                    Post
-                  </button>
-                </div>
-              </form>
-            </div> -->
-
             <div class="bg-white p-3 mt-3 rounded border shadow">
               <h5>Contact</h5>
               <hr class="mb-3" />
@@ -417,8 +327,8 @@
       type="module"
       src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     ></script>
-    <!-- <script type="module" src="/js/component/displayError.mjs"></script>
-    <script type="module" src="/js/contacts.mjs"></script>-->
+    <!-- <script type="module" src="/js/component/displayError.mjs"></script>-->
+    <script type="module" src="/js/contacts.mjs"></script>
     <script type="module" src="/js/api/posts/viewPosts.mjs"></script>
     <script type="module" src="/js/api/posts/createPost.mjs"></script>
     <script type="module" src="/js/api/posts/removePost.mjs"></script>

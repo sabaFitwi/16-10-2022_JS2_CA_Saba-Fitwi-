@@ -1,19 +1,21 @@
-//import { updatePostApi } from "./fetchApi.mjs";
-
 import { authFetch } from "../authFetch.mjs";
 import { postsApi } from "../fetchApi.mjs";
-//import { viewAllPosts, viewSinglePost } from "../posts/getPost.mjs";
+import { viewAllPosts, viewSinglePost } from "../posts/getPost.mjs";
+import { getSinglePost } from "../profile/singleProfile.mjs";
+
 export async function setUpdate() {
   const form = document.querySelector("#updatePost");
 
-  const url = new URL(location.href);
-  const id = url.searchParams.get("id");
+  const queryString = document.location.search;
+  const params = new URLSearchParams(queryString);
+  const id = params.get("id");
+  console.log(id);
   if (form) {
-    const post = await viewSinglePost(id);
+    const post = await getSinglePost(id);
 
-    form.title.value = post.title;
-    form.body.value = post.body;
-    form.media.value = post.media;
+    // form.title.value = post.title;
+    // form.body.value = post.body;
+    // form.media.value = post.media;
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -26,13 +28,13 @@ export async function setUpdate() {
       };
       post.id = id;
       update(postData);
-      //console.log(postData);
+      console.log(postData);
     });
   }
 }
-//setUpdate();
+setUpdate();
 
-async function update(postData) {
+export async function update(postData) {
   if (!postData.id) {
     throw new Error("update requires a postID");
   }

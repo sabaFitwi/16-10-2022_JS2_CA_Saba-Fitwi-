@@ -66,7 +66,7 @@ async function viewAllPosts() {
                       </p>
 
                       <img
-                        src="${post.media ? posts.media : "images/no-image.jp"}"
+                        src="${post.media}
                         alt="pic"
                         id="post-image"
                         class="img-fluid rounded post-image"
