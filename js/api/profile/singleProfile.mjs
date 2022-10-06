@@ -2,7 +2,7 @@ import { authFetch } from "../authFetch.mjs";
 import { postsApi } from "../fetchApi.mjs";
 //import { load } from "../localStorage.mjs";
 import { dateOptions as dateFormate } from "../../component/dateConverter.mjs";
-import { update } from "../posts/update.mjs";
+import { setUpdate, update } from "../posts/update.mjs";
 
 const profileInput = document.querySelector(".profileInput");
 const singlePost = document.querySelector(".singleProfile");
@@ -12,7 +12,7 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 console.log(id);
-update(id);
+//setUpdate(id);
 export async function getSinglePost() {
   try {
     const getPostApi =

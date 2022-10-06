@@ -5,8 +5,7 @@ const contactList = document.querySelector(".contactsList");
 
 async function getContact() {
   try {
-    const postURL =
-      postsApi + "?_author=true&_comments=true&reactions=true&per_page=30";
+    const postURL = postsApi + "?_author=true&_comments=true&reactions=true";
     const response = await authFetch(postURL);
     const data = await response.json();
     console.log(data);

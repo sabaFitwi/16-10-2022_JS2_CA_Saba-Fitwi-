@@ -61,6 +61,7 @@ async function viewAllPosts() {
                   </div>
                   <div class="mt-3">
                     <div>
+                    <p class="m-0 fw-bold">${post.title}</p>
                       <p>
                       ${post.body}
                       </p>
