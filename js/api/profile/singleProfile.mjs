@@ -6,12 +6,12 @@ const profileInput = document.querySelector(".profileInput");
 const singleProfilePost = document.querySelector(".singleProfilePost");
 
 //..............options............................................................//
-const options = {
-  headers: {
-    "Content-type": "application/json; charset=UTF-8",
-    Authorization: token,
-  },
-};
+// const options = {
+//   headers: {
+//     "Content-type": "application/json; charset=UTF-8",
+//     Authorization: token,
+//   },
+// };
 //..................................................................................//
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
@@ -19,9 +19,12 @@ const id = params.get("id");
 console.log(id);
 const url = api + id + "?_author=true&_comments=true&_reactions=true";
 console.log(url);
-async function getProfile() {
+export async function getProfile() {
   try {
-    const response = await fetch(url, options);
+    const getPostApi =
+      postsApi + `/${id}` + "?_author=true&_comments=true&_reactions=true";
+
+    const response = await authFetch(getPostApi);
     const data = await response.json();
     console.log(data);
     singleProfile(data);

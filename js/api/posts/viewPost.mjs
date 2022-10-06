@@ -1,5 +1,5 @@
 //import { accessToken as token } from "./api/authorization.mjs";
-import { viewAllPosts } from "../js/api/posts/getPost.mjs";
+import { viewAllPosts } from "./getPost.mjs";
 // import { displayError } from "./component/displayError.mjs";
 // //import { updatePostApi } from "./fetchApi.mjs";
 // import { postsApi as api } from "./api/fetchApi.mjs";

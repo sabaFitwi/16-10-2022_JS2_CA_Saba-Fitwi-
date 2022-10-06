@@ -5,6 +5,8 @@
 
 import * as post from "./posts/index.mjs";
 
+//import * as profile from "./profile/index.mjs";
+
 //setSignupListener();
 
 // const path = location.pathname;
@@ -20,6 +22,6 @@ import * as post from "./posts/index.mjs";
 //update({ id: 438, title: "title update for 438", body: "body update for 438" });
 //post.createPost();
 //post.update();
-post.viewSinglePost(438).then(console.log);
+//post.viewSinglePost(438).then(console.log);
 //post.viewAllPosts().then(console.log);
 //post.removePost();
