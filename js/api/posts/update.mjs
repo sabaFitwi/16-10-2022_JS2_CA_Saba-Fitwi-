@@ -13,9 +13,9 @@ export async function setUpdate() {
   if (form) {
     const post = await getSinglePost(id);
 
-    // form.title.value = post.title;
-    // form.body.value = post.body;
-    // form.media.value = post.media;
+    form.title.value = post.title;
+    form.body.value = post.body;
+    form.media.value = post.media;
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -26,7 +26,7 @@ export async function setUpdate() {
         media: form.media.value,
         body: form.body.value,
       };
-      post.id = id;
+      postData.id = id;
       update(postData);
       console.log(postData);
     });
