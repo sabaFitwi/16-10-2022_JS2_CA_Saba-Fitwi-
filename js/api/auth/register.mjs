@@ -1,8 +1,4 @@
 import { registerApi } from "../fetchApi.mjs";
-//import * as storage from "./localStorage.mjs";
-// const userEmail = localStorage.getItem("userEmail");
-// const userPassword = localStorage.getItem("userPassword");
-// const errorMessage = document.querySelector(".error-message");
 
 const form = document.querySelector("#registerForm");
 
@@ -32,6 +28,7 @@ form.addEventListener("submit", (event) => {
     };
     const response = await fetch(registerApi, options);
     const result = await response.json();
+
     alert("you are registered");
 
     // await fetch(registerApi, options)

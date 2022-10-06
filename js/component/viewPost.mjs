@@ -1,12 +1,12 @@
 //import { accessToken as token } from "./api/authorization.mjs";
-import { viewAllPosts } from "./getPost.mjs";
+//import { viewAllPosts } from "../api/posts/getPost.mjs";
 // import { displayError } from "./component/displayError.mjs";
 // //import { updatePostApi } from "./fetchApi.mjs";
 // import { postsApi as api } from "./api/fetchApi.mjs";
 // import { dateOptions as dateFormat } from "../dateConverter.mjs";
 // const createFeed = document.querySelector(".create-feeds");
 
-viewAllPosts().then(console.log);
+//viewAllPosts().then(console.log);
 // //.....................options............................................................//
 // // const options = {
 // //   headers: {

@@ -7,7 +7,7 @@ export async function viewAllPosts() {
   return result;
 }
 
-export async function viewSinglePost(id) {
+async function viewSinglePost(id) {
   if (!id) {
     throw new Error("get required id");
   }

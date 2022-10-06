@@ -1,11 +1,9 @@
 import { logInApi } from "../fetchApi.mjs";
 import * as storage from "../localStorage.mjs";
-//import { update } from "../posts/update.mjs";
+// import { load } from "../localStorage.mjs";
+// const { email, password } = load("user");
+//const errorMessage = document.querySelector(".error-message");
 
-// const userEmail = localStorage.getItem("userEmail");
-// const userPassword = localStorage.getItem("userPassword");
-// const errorMessage = document.querySelector(".error-message");
-//update({ id: 413, title: "title update", body: "body title update" });
 const form = document.querySelector("#loginForm");
 
 form.addEventListener("submit", (event) => {
@@ -15,7 +13,6 @@ form.addEventListener("submit", (event) => {
   const user = {
     email: form.email.value,
     password: form.password.value,
-    //avatar: localStorage.getItem("userAvatar"),
   };
 
   console.log(user);
@@ -35,10 +32,10 @@ form.addEventListener("submit", (event) => {
   }
   login(user);
 
-  // if (user.email == userEmail && user.password == userPassword) {
+  // if (user.email == email && user.password == password) {
   //   window.location.href = "/profile.html";
   // } else {
   //   errorMessage.innerHTML += `<p class"">invalid email or password. Please use your login account</p>`;
-  //   console.log("invalid email or password. please use your login account");
+  //   //   console.log("invalid email or password. please use your login account");
   // }
 });

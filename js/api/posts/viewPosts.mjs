@@ -44,7 +44,7 @@ async function viewAllPosts() {
                         style="width: 40px; height: 40px; object-fit: cover"
                       />
                       <div>
-                      <a href="singleProfile.html?id=${
+                      <a href="singlePost.html?id=${
                         post.id
                       }" class="m-0 fw-bold text-decoration-none">${post.author.name.replace(
           "_",

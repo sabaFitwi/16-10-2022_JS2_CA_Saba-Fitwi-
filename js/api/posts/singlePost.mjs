@@ -3,9 +3,9 @@ import { postsApi } from "../fetchApi.mjs";
 //import { load } from "../localStorage.mjs";
 import { dateOptions as dateFormate } from "../../component/dateConverter.mjs";
 import { setUpdate } from "./update.mjs";
-//import * as post from "../posts/update.mjs";
+
 const profileInput = document.querySelector(".profileInput");
-const singlePost = document.querySelector(".singleProfile");
+const singlePost = document.querySelector(".singleProfilePost");
 
 //..................................................................................//
 const queryString = document.location.search;
@@ -23,10 +23,15 @@ async function getSinglePost() {
     const data = await response.json();
 
     console.log(data);
-
     singleProfile(data);
   } catch (error) {
     console.log("error");
+  }
+
+  function updateSinglePost() {
+    if (data) {
+      setUpdate();
+    }
   }
 
   function singleProfile(result) {
@@ -35,7 +40,6 @@ async function getSinglePost() {
 
     singlePost.innerHTML += `<div class="bg-white p-4 rounded shadow mt-3 ">
           <div class="d-flex justify-content-between">
-          
             <div class="d-flex ">
               <img
                 src="${result.author.avatar}"
@@ -44,48 +48,13 @@ async function getSinglePost() {
                 style="width: 38px; height: 38px; object-fit: cover"
               />
               <div>
-              <a href="singleProfile.html?id=${
-                result.id
-              }" class="m-0 fw-bold text-decoration-none">${result.author.name.replace(
-      "_",
-      " "
-    )}</a>
+                <p class="m-0 fw-bold">${result.author.name}</p>
                 <span class="text-muted fs-7">${date.toLocaleDateString(
                   "en-US",
                   dateFormate
                 )}</span>
               </div>
-            </div><div class="d-flex justify-content-end">
-            <!-- icon -->
-            <i
-              class="fas fa-ellipsis-h text-blue pointer"
-              id="post1CommentMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            ></i>
-            <!-- menu -->
-            <ul
-              class="dropdown-menu border-0 shadow"
-              aria-labelledby="post1CommentMenuButton"
-            >
-              <li class="d-flex align-items-center">
-                <a
-                  class="dropdown-item d-flex justify-content-around align-items-center fs-7"
-                  href="#"
-                >
-                  Edit profile</a
-                >
-              </li>
-              <li class="d-flex align-items-center">
-                <a
-                  class="dropdown-item d-flex justify-content-around align-items-center fs-7"
-                  href="#"
-                >
-                  Delete profile</a
-                >
-              </li>
-            </ul>
-          </div>
+            </div>
           </div>
           <!-- post content -->
           <div class="mt-3">

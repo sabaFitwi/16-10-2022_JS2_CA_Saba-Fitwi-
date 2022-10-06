@@ -269,54 +269,17 @@
             class="d-flex flex-column justify-content-center"
             style="padding-top: 60px; width: 100%"
           >
-            <div class="bg-white p-3 mt-3 rounded border shadow">
-              <h5>Update your Post</h5>
-              <form class="row g-3" id="updatePost">
-                <div class="col-12">
-                  <label for="" class="form-label">Title</label>
-                  <input type="text" class="form-control" name="title" />
-                </div>
-                <div class="col-12">
-                  <label for="" class="form-label">Body text</label>
-                  <input type="text" class="form-control" name="body" />
-                </div>
-
-                <div class="col-12">
-                  <label for="" class="form-label">Media</label>
-                  <input type="url" class="form-control" name="media" />
-                </div>
-
-                <div class="col-12 mb-5 button">
-                  <button type="submit" class="btn btn-primary">
-                    update post
-                  </button>
-                </div>
-              </form>
-            </div>
             <!----------------------------- contacts -------------------------------------------->
             <div class="bg-white p-3 mt-3 rounded border shadow">
               <h5>Contact</h5>
               <hr class="mb-3" />
               <div class="contactsList d-flex justify-content-between"></div>
-              <div
-                class="d-flex flex-column justify-content-center"
-                style="padding-top: 60px; width: 100%"
-              >
-                <!----------------------------- contacts -------------------------------------------->
-
-                <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                  POSTS
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                <!-- p 1 -->
-                <div class="profileFeed"></div>
-                <!-- p 2 -->
-              </div>
             </div>
             <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                 POSTS
     ////////////////////////////////////////////////////////////////////////////////////////////////////////-->
             <!-- p 1 -->
-            <div class="singleProfile"></div>
+            <div class="singleProfilePost"></div>
             <!-- p 2 -->
           </div>
         </div>
@@ -331,7 +294,6 @@
 
      <script type="module" src="/js/delete.mjs"></script> -->
 
-    <script type="module" src="./js/api/profile/singleProfile.mjs"></script>
-    <!-- <script type="module" src="./js/api/posts/update.mjs"></script> -->
+    <script type="module" src="./js/api/posts/singlePost.mjs"></script>
   </body>
 </html>
