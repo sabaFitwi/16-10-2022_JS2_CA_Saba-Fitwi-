@@ -5,7 +5,7 @@ export async function removePost(id) {
   if (!id) {
     throw new Error("update requires a postID");
   }
-  const updatePostApi1 = postsApi + "/" + `${id}`;
+  const updatePostApi1 = postsApi + "/" + "id";
 
   const response = await authFetch(updatePostApi1, {
     method: "delete",
@@ -13,3 +13,4 @@ export async function removePost(id) {
   const result = await response.json();
   console.log(result);
 }
+//removePost();

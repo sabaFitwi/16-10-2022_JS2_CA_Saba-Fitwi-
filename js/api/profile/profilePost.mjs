@@ -1,23 +1,24 @@
-import { accessToken as token } from "./authorization.mjs";
-import { profileApi as api } from "./fetchApi.mjs";
-import { dateOptions as dateFormate } from "../../dateConverter.mjs";
+import { authFetch } from "../authFetch.mjs";
+
+import { profileApi } from "../fetchApi.mjs";
+import { dateOptions as dateFormate } from "../../component/dateConverter.mjs";
+import { load } from "../localStorage.mjs";
+////import { profileApi } from "../fetchApi.mjs";
 
 const profileInput = document.querySelector(".profileInput");
 const profileFeed = document.querySelector(".profileFeed");
 
 //..............options............................................................//
-const options = {
-  headers: {
-    "Content-type": "application/json; charset=UTF-8",
-    Authorization: token,
-  },
-};
-//..................................................................................//
 
-async function getProfile() {
+//..................................................................................//
+export async function getProfile() {
+  const { avatar, name } = load("user");
   try {
-    const response = await fetch(api, options);
+    const response = await authFetch(
+      profileApi + `/${name}` + "?_posts=true&_following=true&_followers=true"
+    );
     const data = await response.json();
+
     console.log(data);
     myProfile(data.posts);
   } catch (error) {
@@ -25,51 +26,49 @@ async function getProfile() {
   }
 
   function myProfile(results) {
-    // if (results) {
-    const avatar1 = localStorage.getItem("user");
-    //profile feed innerHTML..........................................................................
+    if (results) {
+      //profile feed innerHTML..........................................................................
 
-    results.forEach((result) => {
-      let date = new Date(`${result.created}`);
+      results.map((result) => {
+        let date = new Date(`${result.created}`);
 
-      profileFeed.innerHTML += `<div class="bg-white p-4 rounded shadow mt-3 ">
+        profileFeed.innerHTML += `<div class="bg-white p-4 rounded shadow mt-3 ">
           <div class="d-flex justify-content-between">
             <div class="d-flex ">
               <img
-                src="${avatar1 ? avatar1 : "images/M.jpg"}"
+              src="${avatar ? avatar : "images/M.jpg"}"
                 alt="avatar"
                 class="rounded-circle me-2 "
                 style="width: 38px; height: 38px; object-fit: cover"
               />
               <div>
-                <p class="m-0 fw-bold">${result.title}</p>
+                <p class="m-0 fw-bold">${name.replace("_", " ")}</p>
                 <span class="text-muted fs-7">${date.toLocaleDateString(
                   "en-US",
                   dateFormate
                 )}</span>
               </div>
+            
             </div>
           </div>
           <!-- post content -->
           <div class="mt-3">
             <!-- content -->
             <div>
+             <p class="m-0 fw-bold">${result.title}</p>
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Quae fuga incidunt consequatur tenetur doloremque officia
-                corrupti provident tempore vitae labore?
+              ${result.body}
               </p>
             <div >
               <img
-                src="${result.media ? result.media : "images/profile.jpg"}"
+                src= "${result.media}"
                 alt="post image"
                 class="img-fluid rounded "
               />
               </div>
-           
-              
+
             </div>
-  
+
             <div class="post__comment mt-3 position-relative">
               <div class="accordion" id="accordionExample">
                 <div class="accordion-item border-0">
@@ -81,11 +80,11 @@ async function getProfile() {
                       aria-expanded="false"
                       aria-controls="collapsePost1"
                     >
-                      <p class="m-0">2 Comments</p>
+                      <p class="m-0">0 followers</p>
                     </div>
                   </h2>
                   <hr />
-  
+
                   <div class="d-flex justify-content-around">
                     <div
                       class="dropdown-item rounded d-flex justify-content-center align-items-center pointer text-muted p-1"
@@ -119,7 +118,7 @@ async function getProfile() {
                         src="https://source.unsplash.com/collection/happy-people"
                         alt="avatar"
                         class="rounded-circle me-2 avatar-image"
-                       
+
                       />
                       <!-- comment text -->
                       <div class="p-3 rounded comment__input w-100">
@@ -163,7 +162,7 @@ async function getProfile() {
                       </div>
                     </div>
                     <!-- comment 2 -->
-                   
+
                     <!-- create comment -->
                     <form class="d-flex my-1">
                       <!-- avatar -->
@@ -172,7 +171,7 @@ async function getProfile() {
                           src="https://source.unsplash.com/collection/happy-people"
                           alt="avatar"
                           class="rounded-circle me-2 avatar-image"
-                         
+
                         />
                       </div>
                       <!-- input -->
@@ -190,19 +189,19 @@ async function getProfile() {
             </div>
           </div>
         </div>`;
-    });
+      });
 
-    // profile image innerHTML..............................................................
-    profileInput.innerHTML += `
-        <img
-        src="${avatar1 ? avatar1 : "images/profile.jpg"}"
-        alt="avatar"
-        class="rounded-circle me-2"
-        style="width: 100px; height: 100px; object-fit: cover"
-      />
-      <h3>${results[0].owner.replace("_", " ")}</h3>
-        `;
-    // }
+      // profile image innerHTML..............................................................
+      profileInput.innerHTML += `
+         <div> <img
+          src="${avatar}"
+          alt="avatar"
+          class="rounded-circle me-2"
+          style="width: 100px; height: 100px; object-fit: cover"
+        />
+        <h3>${name.replace("_", " ")}</h3>
+         </div> `;
+    }
   }
 }
 
