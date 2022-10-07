@@ -31,33 +31,7 @@ form.addEventListener("submit", (event) => {
 
     alert("you are registered");
 
-    // await fetch(registerApi, options)
-    //   .then((response) => response.json())
-    //   .then((result) => console.log({ result }));
-    // localStorage.setItem("userEmail", email);
-    // localStorage.setItem("userAvatar", avatar);
-    // localStorage.setItem("userName", name);
-    // localStorage.setItem("userPassword", password);
     return result;
   }
   register(user);
-
-  // const options = {
-  //   method: "POST",
-  //   body: JSON.stringify(user),
-  //   headers: {
-  //     "Content-type": "application/json; charset=UTF-8",
-  //   },
-  // };
-
-  // fetch(registerApi, options)
-  //   .then((response) => response.json())
-  //   .then((user) => console.log({ user }));
-
-  // if (user.email == userEmail && user.password == userPassword) {
-  //   window.location.href = "/profile.html";
-  // } else {
-  //   errorMessage.innerHTML += `<p class"">invalid email or password. Please use your register account</p>`;
-  //   console.log("invalid email or password. please use your register account");
-  // }
 });
