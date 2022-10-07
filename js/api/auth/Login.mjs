@@ -1,8 +1,9 @@
 import { logInApi } from "../fetchApi.mjs";
 import * as storage from "../localStorage.mjs";
-// import { load } from "../localStorage.mjs";
-// const { email, password } = load("user");
-//const errorMessage = document.querySelector(".error-message");
+import { load } from "../localStorage.mjs";
+const token = load("token");
+
+const errorMessage = document.querySelector(".error-message");
 
 const form = document.querySelector("#loginForm");
 
@@ -29,13 +30,13 @@ form.addEventListener("submit", (event) => {
     storage.save("token", accessToken);
     storage.save("user", profile);
     alert("you are logged in");
+
+    if (token === "undefined" || token === null) {
+      console.log("error email or password");
+      //errorMessage.classList.remove("collapse");
+    } else {
+      window.location.replace("/profile.html");
+    }
   }
   login(user);
-
-  // if (user.email == email && user.password == password) {
-  //   window.location.href = "/profile.html";
-  // } else {
-  //   errorMessage.innerHTML += `<p class"">invalid email or password. Please use your login account</p>`;
-  //   //   console.log("invalid email or password. please use your login account");
-  // }
 });
