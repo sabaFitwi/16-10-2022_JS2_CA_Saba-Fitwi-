@@ -3,7 +3,7 @@
 //import { createPost } from "./posts/createPost.mjs";
 //import { update } from "./posts/update.mjs";
 
-import * as profile from "./profile/index.mjs";
+//import * as profile from "./profile/index.mjs";
 
 //import * as profile from "./profile/index.mjs";
 
