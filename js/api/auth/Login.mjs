@@ -7,6 +7,10 @@ const errorMessage = document.querySelector(".error-message");
 
 const form = document.querySelector("#loginForm");
 
+/**
+ * submit login form data.
+ * @param {Event} submit form submission
+ */
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const form = event.target;
@@ -17,6 +21,14 @@ form.addEventListener("submit", (event) => {
   };
 
   console.log(user);
+  /**
+   * Login a user
+   *   Save the users information in a local storage
+   * @param {String} email-email with valid account
+   * @param {String} password password with minimum of 8 characters
+   * @returns {Object} response object (email, password and accessToken)
+   */
+
   async function login(user) {
     const options = {
       method: "post",
@@ -29,11 +41,13 @@ form.addEventListener("submit", (event) => {
     const { accessToken, ...profile } = await response.json();
     storage.save("token", accessToken);
     storage.save("user", profile);
-    alert("you are logged in");
 
     if (token === "undefined" || token === null) {
       console.log("error email or password");
-      //errorMessage.classList.remove("collapse");
+      /**
+       * Displays a message to the user
+       */
+      errorMessage.innerHTML = ` <div> <p btn-danger>Invalid email or password</p></div>`;
     } else {
       window.location.replace("/profile.html");
     }
