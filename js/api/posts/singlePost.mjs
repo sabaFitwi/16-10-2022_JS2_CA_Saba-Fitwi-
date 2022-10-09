@@ -5,7 +5,12 @@ import { dateOptions as dateFormate } from "../../component/dateConverter.mjs";
 
 const profileInput = document.querySelector(".profileInput");
 const singlePost = document.querySelector(".singleProfilePost");
-
+/**
+ * Checks if a query string is present to define a .
+ * for profile page
+ * @param {Class} API insert defined handleAPI class into this.
+ * @returns {String} Username returned for fetch request.
+ */
 //..................................................................................//
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);

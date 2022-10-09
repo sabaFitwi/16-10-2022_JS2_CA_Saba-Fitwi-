@@ -7,7 +7,6 @@ import { load } from "../localStorage.mjs";
 
 const profileInput = document.querySelector(".profileInput");
 const profileFeed = document.querySelector(".profileFeed");
-const profileBanner = document.querySelector(".banner");
 
 //..............options............................................................//
 

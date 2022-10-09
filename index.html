@@ -240,11 +240,10 @@
                 type="url"
                 name="media"
                 style="display: non"
-                class="form-control mt-3 border-1 bg-gray pointer"
+                class="form-control my-3 border-1 bg-gray pointer"
                 placeholder="Add Image "
               />
 
-              <hr />
               <div class="mx-3" type="button">
                 <button type="submit" class="btn btn-primary navColor w-100">
                   Post
@@ -265,6 +264,24 @@
         <section class="col-12 col-lg-3" style="padding-top: 100px">
           <!--------------------------- Form to create a new post. --------------------------->
           <div class="fixed-right">
+            <div class="dropdown">
+              <a
+                class="btn btn-secondary dropdown-toggle"
+                href="#"
+                role="button"
+                id="dropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Filter By Date
+              </a>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="#">week</a></li>
+                <li><a class="dropdown-item" href="#">2weeks</a></li>
+                <li><a class="dropdown-item" href="#">older</a></li>
+              </ul>
+            </div>
             <div class="bg-white p-3 mt-3 rounded border shadow">
               <h5>Contact</h5>
               <hr class="mb-3" />
@@ -286,6 +303,6 @@
     <script type="module" src="/js/contact.mjs"></script>
     <script type="module" src="/js/api/posts/viewPosts.mjs"></script>
     <script type="module" src="/js/api/posts/createPost.mjs"></script>
-    <script type="module" src="/js/api/posts/removePost.mjs"></script>
+    <!-- <script type="module" src="/js/api/posts/removePost.mjs"></script> -->
   </body>
 </html>

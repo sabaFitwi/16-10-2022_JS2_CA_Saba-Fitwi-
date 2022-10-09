@@ -1,18 +1,18 @@
 import { authFetch } from "../authFetch.mjs";
 import { postsApi } from "../fetchApi.mjs";
-//import { load } from "../localStorage.mjs";
 import { dateOptions as dateFormate } from "../../component/dateConverter.mjs";
-import { setUpdate, update } from "../posts/update.mjs";
+//import { removePost } from "../posts/removePost.mjs";
 
 const profileInput = document.querySelector(".profileInput");
 const singlePost = document.querySelector(".singleProfile");
-const form = document.querySelector("#updatePost");
+//const form = document.querySelector("#updatePost");
 //..................................................................................//
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
+
 console.log(id);
-//setUpdate(id);
+
 export async function getSinglePost() {
   try {
     const getPostApi =
@@ -21,7 +21,7 @@ export async function getSinglePost() {
     const response = await authFetch(getPostApi);
     const data = await response.json();
 
-    console.log(data);
+    console.log(data.id);
 
     singleProfile(data);
   } catch (error) {
@@ -31,7 +31,7 @@ export async function getSinglePost() {
   function singleProfile(result) {
     let date = new Date(`${result.created}`);
 
-    singlePost.innerHTML += `<div class="bg-white p-4 rounded shadow mt-3 ">
+    singlePost.innerHTML += `<div>
           <div class="d-flex justify-content-between">
           
             <div class="d-flex ">
@@ -53,37 +53,8 @@ export async function getSinglePost() {
                   dateFormate
                 )}</span>
               </div>
-            </div><div class="d-flex justify-content-end">
-            <!-- icon -->
-            <i
-              class="fas fa-ellipsis-h text-blue pointer"
-              id="post1CommentMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            ></i>
-            <!-- menu -->
-            <ul
-              class="dropdown-menu border-0 shadow"
-              aria-labelledby="post1CommentMenuButton"
-            >
-              <li class="d-flex align-items-center">
-                <a
-                  class="dropdown-item d-flex justify-content-around align-items-center fs-7"
-                  href="#"
-                >
-                  Edit profile</a
-                >
-              </li>
-              <li class="d-flex align-items-center">
-                <a
-                  class="dropdown-item d-flex justify-content-around align-items-center fs-7"
-                  href="#"
-                >
-                  Delete profile</a
-                >
-              </li>
-            </ul>
-          </div>
+            </div>
+           
           </div>
           <!-- post content -->
           <div class="mt-3">
@@ -146,94 +117,17 @@ export async function getSinglePost() {
                   <hr />
                   <div class="accordion-body">
                     <!-- comment 1 -->
-                    <div class="d-flex align-items-center my-1">
-                      <!-- avatar -->
-                      <img
-                        src="https://source.unsplash.com/collection/happy-people"
-                        alt="avatar"
-                        class="rounded-circle me-2"
-                        style="
-                          width: 38px;
-                          height: 38px;
-                          object-fit: cover;
-                        "
-                      />
-                      <!-- comment text -->
-                      <div class="p-3 rounded comment__input w-100">
-                        <!-- comment menu of author -->
-                        <div class="d-flex justify-content-end">
-                          <!-- icon -->
-                          <i
-                            class="fas fa-ellipsis-h text-blue pointer"
-                            id="post1CommentMenuButton"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          ></i>
-                          <!-- menu -->
-                          <ul
-                            class="dropdown-menu border-0 shadow"
-                            aria-labelledby="post1CommentMenuButton"
-                          >
-                            <li class="d-flex align-items-center">
-                              <a
-                                class="dropdown-item d-flex justify-content-around align-items-center fs-7"
-                                href="#"
-                              >
-                                Edit Comment</a
-                              >
-                            </li>
-                            <li class="d-flex align-items-center">
-                              <a
-                                class="dropdown-item d-flex justify-content-around align-items-center fs-7"
-                                href="#"
-                              >
-                                Delete Comment</a
-                              >
-                            </li>
-                          </ul>
-                        </div>
-                        <p class="fw-bold m-0">John</p>
-                        <p class="m-0 fs-7 bg-gray p-2 rounded">
-                          Lorem ipsum dolor sit amet, consectetur
-                          adipiscing elit.
-                        </p>
-                      </div>
-                    </div>
-                    <!-- comment 2 -->
-                    <div class="d-flex align-items-center my-1">
-                      <!-- avatar -->
-                      <img
-                        src="https://source.unsplash.com/random/2"
-                        alt="avatar"
-                        class="rounded-circle me-2"
-                        style="
-                          width: 38px;
-                          height: 38px;
-                          object-fit: cover;
-                        "
-                      />
-                      <!-- comment text -->
-                      <div class="p-3 rounded comment__input w-100">
-                        <p class="fw-bold m-0">Jerry</p>
-                        <p class="m-0 fs-7 bg-gray p-2 rounded">
-                          Lorem ipsum dolor sit amet, consectetur
-                          adipiscing elit.
-                        </p>
-                      </div>
-                    </div>
+                    
                     <!-- create comment -->
                     <form class="d-flex my-1">
                       <!-- avatar -->
                       <div>
                         <img
-                          src="https://source.unsplash.com/collection/happy-people"
+                          src="${result.author.avatar}"
                           alt="avatar"
-                          class="rounded-circle me-2"
-                          style="
-                            width: 38px;
-                            height: 38px;
-                            object-fit: cover;
-                          "
+                          class="rounded-circle me-2 avatar-image"
+                          
+                          
                         />
                       </div>
                       <!-- input -->

@@ -1,7 +1,10 @@
 import { registerApi } from "../fetchApi.mjs";
 
 const form = document.querySelector("#registerForm");
-
+/**
+ * submit register form data.
+ * @param {Event} submit form submission
+ */
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const form = event.target;
@@ -14,9 +17,14 @@ form.addEventListener("submit", (event) => {
     banner: form.banner.value,
   };
 
-  //const { name, email, password, avatar, banner } = user;
-
   console.log(user);
+  /**
+   * Register a user
+   * @param {String} name name with alphabet number and underscore
+   * @param {String} email -email with valid account
+   * @param {String} password password with minimum of 8 characters
+   * @returns {Object} response object with a user information
+   */
 
   async function register(user) {
     const options = {

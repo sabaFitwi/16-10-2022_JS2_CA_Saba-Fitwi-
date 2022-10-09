@@ -303,21 +303,23 @@
                 style="padding-top: 60px; width: 100%"
               >
                 <!----------------------------- contacts -------------------------------------------->
-
-                <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                  POSTS
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                <!-- p 1 -->
-                <!-- <div class="profileFeed"></div> -->
-                <!-- p 2 -->
               </div>
             </div>
             <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                 POSTS
     ////////////////////////////////////////////////////////////////////////////////////////////////////////-->
             <!-- p 1 -->
-            <div class="singleProfile"></div>
-            <!-- p 2 -->
+            <div class="disabled" id="confirmation"></div>
+            <div class="bg-white p-4 rounded shadow mt-3">
+              <div class="d-flex justify-content-end">
+                <!-- icon -->
+                <button type="button" class="btn btn-primary postDeleteButton">
+                  Delete Post
+                </button>
+              </div>
+              <div class="singleProfile"></div>
+              <!-- p 2 -->
+            </div>
           </div>
         </div>
       </div>
@@ -329,9 +331,7 @@
     ></script>
     <script type="module" src="/js/contacts.mjs"></script>
 
-    <!--
-    <script type="module" src="/js/delete.mjs"></script>
-    -->
+    <script type="module" src="/js/api/posts/removePost.mjs"></script>
 
     <script type="module" src="./js/api/profile/singleProfile.mjs"></script>
     <!-- <script type="module" src="./js/api/posts/update.mjs"></script> -->

@@ -43,6 +43,7 @@ async function setUpdateProfile() {
   }
 }
 setUpdateProfile();
+
 async function update(profileData) {
   if (!profileData.name) {
     throw new Error("update requires a profileID");

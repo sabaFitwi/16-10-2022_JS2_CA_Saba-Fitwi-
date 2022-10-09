@@ -17,6 +17,11 @@ export async function setUpdate() {
     form.body.value = post.body;
     form.media.value = post.media;
 
+    /**
+     * Handles the update post form .
+     * @param {Event} submit form submission.
+     */
+
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       const form = event.target;

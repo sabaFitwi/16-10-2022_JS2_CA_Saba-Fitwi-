@@ -4,7 +4,11 @@ import { displayError } from "../../component/displayError.mjs";
 import { dateOptions as dateFormat } from "../../component/dateConverter.mjs";
 
 const createFeed = document.querySelector(".create-feeds");
-
+/**
+ * Get a post from the Api and render to the home page. *
+ * @param {Function} Function the function to get the post.
+ *
+ */
 async function viewAllPosts() {
   createFeed.innerHTML += `<button class="btn btn-primary mt-5 loaderButton" type="button" disabled>
     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
