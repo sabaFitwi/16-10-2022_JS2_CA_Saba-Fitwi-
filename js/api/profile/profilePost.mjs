@@ -3,12 +3,9 @@ import { authFetch } from "../authFetch.mjs";
 import { profileApi } from "../fetchApi.mjs";
 import { dateOptions as dateFormate } from "../../component/dateConverter.mjs";
 import { load } from "../localStorage.mjs";
-////import { profileApi } from "../fetchApi.mjs";
 
 const profileInput = document.querySelector(".profileInput");
 const profileFeed = document.querySelector(".profileFeed");
-
-//..............options............................................................//
 
 //..................................................................................//
 export async function getProfile() {
@@ -42,7 +39,12 @@ export async function getProfile() {
                 style="width: 38px; height: 38px; object-fit: cover"
               />
               <div>
-                <p class="m-0 fw-bold">${name.replace("_", " ")}</p>
+              <a href="singleProfile.html?id=${
+                result.id
+              }" class="m-0 fw-bold text-decoration-none">${name.replace(
+          "_",
+          " "
+        )}</a>
                 <span class="text-muted fs-7">${date.toLocaleDateString(
                   "en-US",
                   dateFormate
@@ -100,7 +102,7 @@ export async function getProfile() {
                       aria-controls="collapsePost1"
                     >
                       <i class="fas fa-comment-alt me-3"></i>
-                      <p class="m-0">2 Comments</p>
+                      <p class="m-0">0 followers</p>
                     </div>
                   </div>
                   <div
@@ -123,37 +125,7 @@ export async function getProfile() {
                       <!-- comment text -->
                       <div class="p-3 rounded comment__input w-100">
                         <!-- comment menu of author -->
-                        <div class="d-flex justify-content-end">
-                          <!-- icon -->
-                          <i
-                            class="fas fa-ellipsis-h text-blue pointer"
-                            id="post1CommentMenuButton"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          ></i>
-                          <!-- menu -->
-                          <ul
-                            class="dropdown-menu border-0 shadow"
-                            aria-labelledby="post1CommentMenuButton"
-                          >
-                            <li class="d-flex align-items-center">
-                              <a
-                                class="dropdown-item d-flex justify-content-around align-items-center fs-7"
-                                href="#"
-                              >
-                                Edit Comment</a
-                              >
-                            </li>
-                            <li class="d-flex align-items-center">
-                              <a
-                                class="dropdown-item d-flex justify-content-around align-items-center fs-7"
-                                href="#"
-                              >
-                                Delete Comment</a
-                              >
-                            </li>
-                          </ul>
-                        </div>
+                        
                         <p class="fw-bold m-0">John</p>
                         <p class="m-0 fs-7 bg-gray p-2 rounded">
                           Lorem ipsum dolor sit amet, consectetur

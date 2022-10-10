@@ -1,38 +1,48 @@
-//import { updatePostApi } from "./fetchApi.mjs";
-
 import { authFetch } from "../authFetch.mjs";
 import { postsApi } from "../fetchApi.mjs";
-import { viewAllPosts, viewSinglePost } from "../posts/getPost.mjs";
-async function setUpdate() {
+//import { viewAllPosts, viewSinglePost } from "../posts/getPost.mjs";
+import { getSinglePost } from "../profile/singleProfile.mjs";
+
+export async function setUpdate() {
   const form = document.querySelector("#updatePost");
 
-  const url = new URL(location.href);
-  const id = url.searchParams.get("id");
+  const queryString = document.location.search;
+  const params = new URLSearchParams(queryString);
+  const id = params.get("id");
+  console.log(id);
   if (form) {
-    const post = await viewSinglePost(796);
+    const post = await getSinglePost(id);
 
     form.title.value = post.title;
     form.body.value = post.body;
     form.media.value = post.media;
+    form.media.tags = post.tags;
+
+    /**
+     * Handles the update post form .
+     * @param {Event} submit form submission.
+     */
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      // const form = event.target;
-      // const formData = new FormData(form);
-      // const post = Object.fromEntries(formData.entries());
+      const form = event.target;
+
       const postData = {
         title: form.title.value,
         media: form.media.value,
         body: form.body.value,
+        tags: form.tags.value,
       };
-      post.id = id;
+      postData.id = id;
       update(postData);
-      //console.log(postData);
+      location.reload();
+      console.log(postData);
     });
   }
 }
-//setUpdate();
-async function update(postData) {
+setUpdate();
+
+export async function update(postData) {
   if (!postData.id) {
     throw new Error("update requires a postID");
   }
@@ -47,23 +57,3 @@ async function update(postData) {
   return result;
   //console.log(result);
 }
-// import { accessToken as token2 } from "./collection/authorization.mjs";
-
-// const updatePost = {
-//   title: "",
-//   body: "",
-//   media: "https://postimg.cc/23YGDmSx",
-// };
-// console.log(updatePost);
-// const options = {
-//   method: "PUT",
-//   body: JSON.stringify(updatePost),
-//   headers: {
-//     "Content-type": "application/json; charset=UTF-8",
-//     Authorization: token2,
-//   },
-// };
-// fetch(updatePostApi, options)
-//   .then((response) => response.json())
-//   .then((updatePost) => console.log(updatePost));
-// console.log(updatePost);

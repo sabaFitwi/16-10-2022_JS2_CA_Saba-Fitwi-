@@ -29,7 +29,7 @@
     >
       <div class="container">
         <a class="navbar-brand" href="index.html">
-          <h1 class="text-white">Music Media</h1>
+          <h1 class="text-white">Social Media</h1>
         </a>
         <button
           class="navbar-toggler"
@@ -47,102 +47,6 @@
           id="navbarNav"
         >
           <ul class="navbar-nav align-items-center">
-            <li>
-              <div
-                class="d-lg-none"
-                id="searchDropdowm"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                type="button"
-                data-bs-auto-close="outside"
-              >
-                <div
-                  class="input-group-text bg-gray border-0 rounded-pill"
-                  style="min-height: 40px"
-                >
-                  <i class="fas fa-search text-muted"></i>
-                </div>
-              </div>
-              <!-- desktop -->
-              <div
-                class="d-none d-lg-block float-lg-none"
-                id="searchDropdowm"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                type="button"
-                data-bs-auto-close="outside"
-              >
-                <div
-                  class="input-group-text bg-gray border-0 rounded-pill"
-                  style="min-height: 40px; min-width: 250px"
-                >
-                  <i class="fas fa-search me-2 text-muted"></i>
-                  <p class="m-0 fs-7 text-muted">search</p>
-                </div>
-              </div>
-
-              <!-------------- search dropdown ----------------->
-              <ul
-                class="dropdown-menu border-0 shadow p-3 overflow-auto"
-                aria-labelledby="searchDropdowm"
-                style="width: 100%; max-height: 600px"
-              >
-                <li>
-                  <input
-                    class="rounded-pill border-0 bg-gray"
-                    type="text"
-                    class="dropdown-item ms-2"
-                    placeholder="write your search..."
-                    autofocus
-                  />
-                </li>
-
-                <li class="my-2">
-                  <div
-                    class="alert fade show dropdown-item p-1 m-0 d-flex align-iems-center justify-content-between"
-                    role="alert"
-                  >
-                    <div class="d-flex align-item-center">
-                      <img
-                        src="https://source.unsplash.com/random/1"
-                        alt="avatar"
-                        class="rounded-circle me-2"
-                        style="width: 35px; height: 35px; object-fit: cover"
-                      />
-                      <p class="m-0">Lorem ser dsa</p>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </li>
-                <li class="my-2">
-                  <div
-                    class="alert fade show dropdown-item p-1 m-0 d-flex align-iems-center justify-content-between"
-                    role="alert"
-                  >
-                    <div class="d-flex align-item-center">
-                      <img
-                        src="https://source.unsplash.com/random/2"
-                        alt="avatar"
-                        class="rounded-circle me-2"
-                        style="width: 35px; height: 35px; object-fit: cover"
-                      />
-                      <p class="m-0">Lorem ser dsa</p>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </li>
-              </ul>
-            </li>
             <li class="nav-item px-3">
               <a class="nav-link" href="index.html">Home</a>
             </li>
@@ -168,11 +72,13 @@
 
     <header>
       <div class="container">
-        <img
+        <div class="banner"></div>
+
+        <!-- <img
           src="images/cover.jpg"
           class="d-block mx-auto shadow rounded"
           style="width: 100%; height: 300px; object-fit: cover"
-        />
+        /> -->
       </div>
 
       <div
@@ -434,15 +340,15 @@
             </div>
           </div>
         </div>
-        <!---------------------------create post----------------------->
+        <!---------------------------update post----------------------->
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 p-4">
           <div
             class="d-flex flex-column justify-content-center"
             style="padding-top: 60px; width: 100%"
           >
-            <form
+            <!-- <form
               class="bg-white p-3 mt-3 rounded border shadow"
-              id="updatePost"
+              id="updatePosts"
             >
               <h5>Update Post</h5>
               <hr />
@@ -469,11 +375,6 @@
                 placeholder="Add yor post/photos/videos"
               ></textarea>
 
-              <!-- <div class="d-flex flex-row justify-content-end mt-3"> -->
-              <!--  <div class="mx-3" type="button">
-                <i class="fas fa-video me-2 text-info"></i>
-              </div> -->
-
               <div
                 class="mx-3 d-flex flex-row justify-content-end"
                 type="button"
@@ -493,17 +394,14 @@
                   class="form-control mt-3 border-1 bg-gray pointer"
                 />
               </div>
-              <!-- <div class="mx-3">
-                <i class="fas fa-smile me-2 text-info"></i>
-              </div> -->
-              <!-- </div> -->
+
               <hr />
               <div class="mx-3" type="button">
                 <button type="submit" class="btn btn-primary navColor w-100">
                   Update Post
                 </button>
               </div>
-            </form>
+            </form> -->
             <!----------------------------- contacts -------------------------------------------->
             <div class="bg-white p-3 mt-3 rounded border shadow">
               <h5>Contact</h5>
@@ -528,12 +426,13 @@
       type="module"
       src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     ></script>
+    <script type="module" src="/js/api/profile/profilePost.mjs"></script>
+    <script type="module" src="/js/api/posts/removePost.mjs"></script>
 
-    <!-- <script type="module" src="/js/delete.mjs"></script> -->
     <script type="module" src="/js/contacts.mjs"></script>
 
     <script type="module" src="/js/api/posts/update.mjs"></script>
-    <!-- <script type="module" src="/js/api/profile/editProfile.mjs"></script>-->
-    <script type="module" src="/js/api/profile/profilePost.mjs"></script>
+    <script type="module" src="/js/api/profile/editProfile.mjs"></script>
+    <script type="module" src="/js/api/profile/bannerProfile.mjs"></script>
   </body>
 </html>

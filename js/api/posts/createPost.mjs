@@ -1,6 +1,11 @@
 import { postsApi } from "../fetchApi.mjs";
 import { authFetch } from "../authFetch.mjs";
 
+/**
+ * Creates a post.
+ * @param {Event} form the form you submitting on the page
+ * @param {Function} postData the function to create the post .
+ */
 const form = document.querySelector(".post");
 
 form.addEventListener("submit", (event) => {
@@ -8,6 +13,7 @@ form.addEventListener("submit", (event) => {
   const form = event.target;
   const postData = {
     title: form.title.value,
+    tags: form.tags.value,
     media: form.media.value,
     body: form.body.value,
   };
@@ -22,5 +28,7 @@ async function createPost(postData) {
     body: JSON.stringify(postData),
   });
   const result = await response.json();
-  console.log(result);
+
+  //console.log(result);
+  return result;
 }

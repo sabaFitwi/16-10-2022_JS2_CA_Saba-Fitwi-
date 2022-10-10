@@ -1,13 +1,16 @@
 import { logInApi } from "../fetchApi.mjs";
 import * as storage from "../localStorage.mjs";
-//import { update } from "../posts/update.mjs";
+import { load } from "../localStorage.mjs";
+const token = load("token");
 
-// const userEmail = localStorage.getItem("userEmail");
-// const userPassword = localStorage.getItem("userPassword");
-// const errorMessage = document.querySelector(".error-message");
-//update({ id: 413, title: "title update", body: "body title update" });
+const errorMessage = document.querySelector(".error-message");
+
 const form = document.querySelector("#loginForm");
 
+/**
+ * submit login form data.
+ * @param {Event} submit form submission
+ */
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const form = event.target;
@@ -15,10 +18,17 @@ form.addEventListener("submit", (event) => {
   const user = {
     email: form.email.value,
     password: form.password.value,
-    //avatar: localStorage.getItem("userAvatar"),
   };
 
   console.log(user);
+  /**
+   * Login a user
+   *   Save the users information in a local storage
+   * @param {String} email-email with valid account
+   * @param {String} password password with minimum of 8 characters
+   * @returns {Object} response object (email, password and accessToken)
+   */
+
   async function login(user) {
     const options = {
       method: "post",
@@ -31,14 +41,16 @@ form.addEventListener("submit", (event) => {
     const { accessToken, ...profile } = await response.json();
     storage.save("token", accessToken);
     storage.save("user", profile);
-    alert("you are logged in");
+
+    if (token === "undefined" || token === null) {
+      console.log("error email or password");
+      /**
+       * Displays a message to the user
+       */
+      errorMessage.innerHTML = ` <div> <p btn-danger>Invalid email or password</p></div>`;
+    } else {
+      window.location.replace("/profile.html");
+    }
   }
   login(user);
-
-  // if (user.email == userEmail && user.password == userPassword) {
-  //   window.location.href = "/profile.html";
-  // } else {
-  //   errorMessage.innerHTML += `<p class"">invalid email or password. Please use your login account</p>`;
-  //   console.log("invalid email or password. please use your login account");
-  // }
 });
