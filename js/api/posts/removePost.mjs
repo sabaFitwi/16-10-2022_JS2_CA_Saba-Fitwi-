@@ -7,8 +7,9 @@ postDelete.addEventListener("click", () => {
   const queryString = document.location.search;
   const parameters = new URLSearchParams(queryString);
   const id = parameters.get("id");
-  console.log(id);
+
   removePost(id);
+  window.location.reload();
 });
 
 async function removePost(id) {

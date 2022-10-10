@@ -4,11 +4,16 @@ import { displayError } from "../../component/displayError.mjs";
 import { dateOptions as dateFormat } from "../../component/dateConverter.mjs";
 
 const createFeed = document.querySelector(".create-feeds");
+const searchButton = document.querySelector("#search-button");
+const searchInput = document.querySelector("#search-input");
+
 /**
  * Get a post from the Api and render to the home page. *
  * @param {Function} Function the function to get the post.
  *
  */
+let data = [];
+
 async function viewAllPosts() {
   createFeed.innerHTML += `<button class="btn btn-primary mt-5 loaderButton" type="button" disabled>
     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -19,9 +24,9 @@ async function viewAllPosts() {
     const postURL =
       postsApi + "?_author=true&_comments=true&reactions=true&per_page=30";
     const response = await authFetch(postURL);
-    const data = await response.json();
+    data = await response.json();
 
-    console.log(data);
+    //console.log(data);
     getAllPosts(data);
   } catch (error) {
     createFeed.innerHTML = displayError("An error occurred. Please try again");
@@ -33,7 +38,7 @@ async function viewAllPosts() {
   function getAllPosts(posts) {
     createFeed.innerHTML = "";
     if (posts) {
-      posts.forEach((post) => {
+      posts.map((post) => {
         let date = new Date(`${post.created}`);
 
         createFeed.innerHTML += ` <div class="bg-white p-4 rounded shadow mt-3">
@@ -194,6 +199,28 @@ async function viewAllPosts() {
       createFeed.classList.remove("error");
     }
   }
+
+  /**
+   *uses the input value to filter the user by its title and name
+   * @param {string} event
+   */
+
+  searchInput.addEventListener("keyup", (event) => {
+    const inputValue = event.target.value.toLowerCase();
+
+    const inputResult = data.filter((user) => {
+      if (
+        user.title.toLowerCase().startsWith(inputValue) ||
+        user.author.name.toLowerCase().startsWith(inputValue)
+      ) {
+        return true;
+      }
+    });
+    createFeed.innerHTML = getAllPosts(inputResult);
+
+    getAllPosts(inputResult);
+    console.log(inputResult);
+  });
 }
 
 viewAllPosts();
