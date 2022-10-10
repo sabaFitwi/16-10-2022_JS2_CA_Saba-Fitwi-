@@ -1,5 +1,5 @@
 //import { updatePostApi } from "./fetchApi.mjs";
-
+import * as storage from "../localStorage.mjs";
 import { authFetch } from "../authFetch.mjs";
 
 //import { getProfile } from "./profilePost.mjs";
@@ -57,5 +57,7 @@ async function update(profileData) {
     body: JSON.stringify(profileData),
   });
   const result = await response.json();
+  storage.save("banner", result.banner);
+
   return result;
 }

@@ -3,12 +3,9 @@ import { authFetch } from "../authFetch.mjs";
 import { profileApi } from "../fetchApi.mjs";
 import { dateOptions as dateFormate } from "../../component/dateConverter.mjs";
 import { load } from "../localStorage.mjs";
-////import { profileApi } from "../fetchApi.mjs";
 
 const profileInput = document.querySelector(".profileInput");
 const profileFeed = document.querySelector(".profileFeed");
-
-//..............options............................................................//
 
 //..................................................................................//
 export async function getProfile() {

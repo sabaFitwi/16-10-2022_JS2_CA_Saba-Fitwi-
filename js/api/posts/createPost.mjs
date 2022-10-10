@@ -13,6 +13,7 @@ form.addEventListener("submit", (event) => {
   const form = event.target;
   const postData = {
     title: form.title.value,
+    tags: form.tags.value,
     media: form.media.value,
     body: form.body.value,
   };
@@ -27,6 +28,7 @@ async function createPost(postData) {
     body: JSON.stringify(postData),
   });
   const result = await response.json();
+
   //console.log(result);
   return result;
 }

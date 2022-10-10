@@ -1,4 +1,6 @@
-export * from "./editProfile.mjs";
-export * from "./getProfile.mjs";
-export * from "./profilePost.mjs";
-export * from "./singleProfile.mjs";
+// import * as editProfile from "./editProfile.mjs";
+// import * from "./getProfile.mjs";
+// import * from "./profilePost.mjs";
+// import * from "./singleProfile.mjs";
+
+// editProfile()

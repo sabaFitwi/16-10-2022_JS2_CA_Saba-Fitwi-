@@ -4,7 +4,7 @@ import { displayError } from "../../component/displayError.mjs";
 import { dateOptions as dateFormat } from "../../component/dateConverter.mjs";
 
 const createFeed = document.querySelector(".create-feeds");
-const searchButton = document.querySelector("#search-button");
+
 const searchInput = document.querySelector("#search-input");
 
 /**
@@ -81,6 +81,7 @@ async function viewAllPosts() {
                         id="post-image"
                         class="img-fluid rounded post-image"
                        />
+                    // <p>${post.tags}</p>
 
                     </div>
 

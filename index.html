@@ -135,18 +135,15 @@
               <li class="dropdown-item p-1 rounded">
                 <a
                   href="profile.html"
-                  class="d-flex align-items-center text-decoration-none text-dark"
+                  class="d-flex align-items-center text-decoration-none text-dark profileAvatar"
                 >
                   <div class="p-2">
-                    <img
+                    <!-- <img
                       src="images/profile.jpg"
                       alt="avatar"
                       class="rounded-circle me-2"
                       style="width: 40px; height: 40px; object-fit: cover"
-                    />
-                  </div>
-                  <div>
-                    <p class="m-0">Saba</p>
+                    /> -->
                   </div>
                 </a>
               </li>
@@ -165,7 +162,7 @@
                     />
                   </div>
                   <div>
-                    <p class="m-0">Friends</p>
+                    <p class="m-0 text-muted">Friends</p>
                   </div>
                 </a>
               </li>
@@ -184,7 +181,7 @@
                     />
                   </div>
                   <div>
-                    <p class="m-0">Message</p>
+                    <p class="m-0 text-muted">Message</p>
                   </div>
                 </a>
               </li>
@@ -203,7 +200,7 @@
                     />
                   </div>
                   <div>
-                    <p class="m-0">photos</p>
+                    <p class="m-0 text-muted">photos</p>
                   </div>
                 </a>
               </li>
@@ -213,55 +210,61 @@
         </div>
 
         <!--========================================= Timeline ===================================---->
-        <div class="col-12 col-lg-6 pb-5">
+        <div class="col-12 col-lg-5 pb-5">
           <!--mobile view-->
-          <div class="d-block mt-5 pt-5">
-            <form class="bg-white p-3 mt-3 rounded border shadow post">
-              <h5>Create post</h5>
-              <hr />
-              <div class="d-flex" type="button">
+
+          <div
+            class="d-flex flex-column justify-content-center w-100 mx-auto"
+            style="padding-top: 60px; max-width: 850px"
+          >
+            <div class="d-block pt-2">
+              <form class="bg-white p-3 mt-3 rounded border shadow post">
+                <h5>Create post</h5>
+
                 <input
                   type="text"
                   name="title"
                   class="form-control border-1 bg-gray pointer"
                   placeholder="Title"
                 />
-              </div>
-              <textarea
-                type="text"
-                id="postBody"
-                name="body"
-                class="form-control mt-3 border-1 bg-gray pointer"
-                placeholder="Add body "
-              ></textarea>
+                <input
+                  type="text"
+                  name="tags"
+                  class="form-control mt-3 border-1 bg-gray pointer"
+                  placeholder="Tag"
+                />
 
-              <input
-                id="file-input"
-                type="url"
-                name="media"
-                style="display: non"
-                class="form-control my-3 border-1 bg-gray pointer"
-                placeholder="Add Image "
-              />
+                <textarea
+                  type="text"
+                  id="postBody"
+                  name="body"
+                  class="form-control mt-3 border-1 bg-gray pointer"
+                  placeholder="Add body "
+                ></textarea>
 
-              <div class="mx-3" type="button">
-                <button type="submit" class="btn btn-primary navColor w-100">
-                  Post
-                </button>
-              </div>
-            </form>
-          </div>
-          <div
-            class="d-flex flex-column justify-content-center w-100 mx-auto"
-            style="padding-top: 60px; max-width: 850px"
-          >
+                <input
+                  id="file-input"
+                  type="url"
+                  name="media"
+                  style="display: non"
+                  class="form-control my-3 border-1 bg-gray pointer"
+                  placeholder="Add Image "
+                />
+
+                <div class="mx-3" type="button">
+                  <button type="submit" class="btn btn-primary navColor w-100">
+                    Post
+                  </button>
+                </div>
+              </form>
+            </div>
             <div class="create-feeds"></div>
           </div>
         </div>
 
         <!---================================== RIGHT SIDEBAR ==================================----------->
 
-        <section class="col-12 col-lg-3" style="padding-top: 100px">
+        <section class="col-12 col-lg-4" style="padding-top: 100px">
           <!--------------------------- Form to create a new post. --------------------------->
           <div class="fixed-right">
             <div class="dropdown">
@@ -299,9 +302,10 @@
       type="module"
       src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     ></script>
-    <!-- <script type="module" src="/js/search.mjs"></script> -->
-    <script type="module" src="/js/contact.mjs"></script>
+
     <script type="module" src="/js/api/posts/viewPosts.mjs"></script>
     <script type="module" src="/js/api/posts/createPost.mjs"></script>
+    <script type="module" src="/js/api/profile/avatarProfile.mjs"></script>
+    <script type="module" src="/js/contacts.mjs"></script>
   </body>
 </html>
