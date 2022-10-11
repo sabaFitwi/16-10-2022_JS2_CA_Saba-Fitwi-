@@ -25,4 +25,4 @@ async function removePost(id) {
   const result = await response.json();
   return result;
 }
-console.log("hihi");
+//console.log("hihi");

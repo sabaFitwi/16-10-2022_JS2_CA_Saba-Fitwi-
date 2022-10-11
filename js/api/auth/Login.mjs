@@ -41,6 +41,7 @@ form.addEventListener("submit", (event) => {
     const { accessToken, ...profile } = await response.json();
     storage.save("token", accessToken);
     storage.save("user", profile);
+    window.location.replace("/profile.html");
 
     if (token === "undefined" || token === null) {
       console.log("error email or password");
@@ -49,7 +50,7 @@ form.addEventListener("submit", (event) => {
        */
       errorMessage.innerHTML = ` <div> <p btn-danger>Invalid email or password</p></div>`;
     } else {
-      window.location.replace("/profile.html");
+      window.location.href("/profile.html");
     }
   }
   login(user);
