@@ -136,36 +136,46 @@
             >
               <!--------------------------------- posts ..............................-->
               <!---- photos ---->
-              <div class="mt-5 text-muted" id="photos"><h3>Photos</h3></div>
-              <hr class="text-muted" />
-              <div class="row row-cols-12 row-cols-md-12 gap-2">
-                <div class="col">
-                  <div class="">
-                    <img
-                      src="https://source.unsplash.com/collection/happy-people"
-                      class="card-img-top"
-                      alt="photo"
-                      style="max-width: 150px; height: 150px; object-fit: cover"
-                    />
+
+              <div class="bg-white p-3 mt-3 rounded border shadow">
+                <h5>Update your Post</h5>
+                <form class="row g-3" id="updatePost">
+                  <div class="col-12">
+                    <label for="" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="title" />
                   </div>
-                </div>
-                <div class="col">
-                  <img
-                    src="https://source.unsplash.com/collection/happy-people"
-                    class="card-img-top"
-                    style="max-width: 150px; height: 150px; object-fit: cover"
-                    alt="photo"
-                  />
-                </div>
-                <div class="col">
-                  <img
-                    src="https://source.unsplash.com/collection/happy-people"
-                    class="card-img-top"
-                    alt="photo"
-                    style="max-width: 150px; height: 150px; object-fit: cover"
-                  />
-                </div>
+                  <div class="col-12">
+                    <label for="" class="form-label">Tags</label>
+                    <input type="text" class="form-control" name="tags" />
+                  </div>
+                  <div class="col-12">
+                    <label for="" class="form-label">Body text</label>
+                    <input type="text" class="form-control" name="body" />
+                  </div>
+
+                  <div class="col-12">
+                    <label for="" class="form-label">Media</label>
+                    <input type="url" class="form-control" name="media" />
+                  </div>
+
+                  <div class="col-12 mb-5 button">
+                    <button type="submit" class="btn btn-primary">
+                      update post
+                    </button>
+                  </div>
+                </form>
               </div>
+            </div>
+          </div>
+          <div class="bg-white p-3 mt-3 rounded border shadow">
+            <h5>Contact</h5>
+            <hr class="mb-3" />
+            <div class="contactsList d-flex justify-content-between"></div>
+            <div
+              class="d-flex flex-column justify-content-center"
+              style="padding-top: 60px; width: 100%"
+            >
+              <!----------------------------- contacts -------------------------------------------->
             </div>
           </div>
           <!---------------------------create post----------------------->
@@ -175,46 +185,8 @@
             class="d-flex flex-column justify-content-center"
             style="padding-top: 60px; width: 100%"
           >
-            <div class="bg-white p-3 mt-3 rounded border shadow">
-              <h5>Update your Post</h5>
-              <form class="row g-3" id="updatePost">
-                <div class="col-12">
-                  <label for="" class="form-label">Title</label>
-                  <input type="text" class="form-control" name="title" />
-                </div>
-                <div class="col-12">
-                  <label for="" class="form-label">Tags</label>
-                  <input type="text" class="form-control" name="tags" />
-                </div>
-                <div class="col-12">
-                  <label for="" class="form-label">Body text</label>
-                  <input type="text" class="form-control" name="body" />
-                </div>
-
-                <div class="col-12">
-                  <label for="" class="form-label">Media</label>
-                  <input type="url" class="form-control" name="media" />
-                </div>
-
-                <div class="col-12 mb-5 button">
-                  <button type="submit" class="btn btn-primary">
-                    update post
-                  </button>
-                </div>
-              </form>
-            </div>
             <!----------------------------- contacts -------------------------------------------->
-            <div class="bg-white p-3 mt-3 rounded border shadow">
-              <h5>Contact</h5>
-              <hr class="mb-3" />
-              <div class="contactsList d-flex justify-content-between"></div>
-              <div
-                class="d-flex flex-column justify-content-center"
-                style="padding-top: 60px; width: 100%"
-              >
-                <!----------------------------- contacts -------------------------------------------->
-              </div>
-            </div>
+
             <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                 POSTS
     ////////////////////////////////////////////////////////////////////////////////////////////////////////-->
@@ -223,7 +195,11 @@
             <div class="bg-white p-4 rounded shadow mt-3">
               <div class="d-flex justify-content-end">
                 <!-- icon -->
-                <button type="button" class="btn btn-primary postDeleteButton">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="postDeleteButton"
+                >
                   Delete Post
                 </button>
               </div>

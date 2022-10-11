@@ -34,9 +34,9 @@ export async function setUpdate() {
         tags: form.tags.value,
       };
       postData.id = id;
-      update(postData);
+      update(postData.id);
       location.reload();
-      console.log(postData);
+      console.log(postData.id);
     });
   }
 }

@@ -8,7 +8,7 @@ async function getContact() {
     const postURL = postsApi + "?_author=true&_comments=true&reactions=true";
     const response = await authFetch(postURL);
     const data = await response.json();
-    console.log(data);
+
     allContact(data);
   } catch (error) {
     console.log("error");

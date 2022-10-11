@@ -28,6 +28,7 @@ async function createPost(postData) {
     body: JSON.stringify(postData),
   });
   const result = await response.json();
+  location.reload();
 
   //console.log(result);
   return result;
