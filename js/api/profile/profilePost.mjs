@@ -10,6 +10,7 @@ const profileFeed = document.querySelector(".profileFeed");
 //..................................................................................//
 export async function getProfile() {
   const { avatar, name } = load("user");
+  const banner = load("banner");
   try {
     const response = await authFetch(
       profileApi + `/${name}` + "?_posts=true&_following=true&_followers=true"
@@ -38,21 +39,32 @@ export async function getProfile() {
                 class="rounded-circle me-2 "
                 style="width: 38px; height: 38px; object-fit: cover"
               />
-              <div>
+              <div >
               <a href="singleProfile.html?id=${
                 result.id
               }" class="m-0 fw-bold text-decoration-none">${name.replace(
           "_",
           " "
-        )}</a>
-                <span class="text-muted fs-7">${date.toLocaleDateString(
-                  "en-US",
-                  dateFormate
-                )}</span>
+        )}</a> <div><span class="text-muted fs-7">${date.toLocaleDateString(
+          "en-US",
+          dateFormate
+        )}</span></div>
+                
               </div>
             
             </div>
-          </div>
+            <a href="singleProfile.html?id=${
+              result.id
+            }" class="d-flex justify-content-end">
+            <!-- icon -->
+            <button type="button" class="btn btn-primary postUpdateButton">
+              Update Post
+            </button>
+            
+          <a/>
+
+           
+          </div> 
           <!-- post content -->
           <div class="mt-3">
             <!-- content -->
@@ -165,14 +177,25 @@ export async function getProfile() {
 
       // profile image innerHTML..............................................................
       profileInput.innerHTML += `
-         <div> <img
-          src="${avatar}"
+      <div class="container ">
+          <img
+          src="${banner}"
+          class="d-block mx-auto shadow rounded"
+          style="width: 100%; height: 300px; object-fit: cover"
+          />
+      </div>
+
+      <div class="position-absolute top-80 start-50 translate-middle d-flex flex-column align-items-center "
+  >
+       <img
+       src="${avatar ? avatar : "images/M.jpg"}"
           alt="avatar"
-          class="rounded-circle me-2"
-          style="width: 100px; height: 100px; object-fit: cover"
-        />
-        <h3>${name.replace("_", " ")}</h3>
-         </div> `;
+          class="rounded-circle border-shadow-5 me-2"
+           style="width: 100px; height: 100px; object-fit: cover"
+  />
+      <h3>${name.replace("_", " ")}</h3></div>
+           
+          `;
     }
   }
 }

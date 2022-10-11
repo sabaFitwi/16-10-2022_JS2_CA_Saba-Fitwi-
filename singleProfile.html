@@ -8,7 +8,7 @@
       name="description"
       content=" with music media you can edit your profile, create your profile, and see you posts."
     />
-    <title>Friends post</title>
+    <title>Single post</title>
     <link rel="stylesheet" href="dist/css/style.css" />
     <!-- fontAwsome -->
     <link
@@ -47,102 +47,6 @@
           id="navbarNav"
         >
           <ul class="navbar-nav align-items-center">
-            <li>
-              <div
-                class="d-lg-none"
-                id="searchDropdowm"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                type="button"
-                data-bs-auto-close="outside"
-              >
-                <div
-                  class="input-group-text bg-gray border-0 rounded-pill"
-                  style="min-height: 40px"
-                >
-                  <i class="fas fa-search text-muted"></i>
-                </div>
-              </div>
-              <!-- desktop -->
-              <div
-                class="d-none d-lg-block float-lg-none"
-                id="searchDropdowm"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                type="button"
-                data-bs-auto-close="outside"
-              >
-                <div
-                  class="input-group-text bg-gray border-0 rounded-pill"
-                  style="min-height: 40px; min-width: 250px"
-                >
-                  <i class="fas fa-search me-2 text-muted"></i>
-                  <p class="m-0 fs-7 text-muted">search</p>
-                </div>
-              </div>
-
-              <!-------------- search dropdown ----------------->
-              <ul
-                class="dropdown-menu border-0 shadow p-3 overflow-auto"
-                aria-labelledby="searchDropdowm"
-                style="width: 100%; max-height: 600px"
-              >
-                <li>
-                  <input
-                    class="rounded-pill border-0 bg-gray"
-                    type="text"
-                    class="dropdown-item ms-2"
-                    placeholder="write your search..."
-                    autofocus
-                  />
-                </li>
-
-                <li class="my-2">
-                  <div
-                    class="alert fade show dropdown-item p-1 m-0 d-flex align-iems-center justify-content-between"
-                    role="alert"
-                  >
-                    <div class="d-flex align-item-center">
-                      <img
-                        src="https://source.unsplash.com/random/1"
-                        alt="avatar"
-                        class="rounded-circle me-2"
-                        style="width: 35px; height: 35px; object-fit: cover"
-                      />
-                      <p class="m-0">Lorem ser dsa</p>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </li>
-                <li class="my-2">
-                  <div
-                    class="alert fade show dropdown-item p-1 m-0 d-flex align-iems-center justify-content-between"
-                    role="alert"
-                  >
-                    <div class="d-flex align-item-center">
-                      <img
-                        src="https://source.unsplash.com/random/2"
-                        alt="avatar"
-                        class="rounded-circle me-2"
-                        style="width: 35px; height: 35px; object-fit: cover"
-                      />
-                      <p class="m-0">Lorem ser dsa</p>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="alert"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                </li>
-              </ul>
-            </li>
             <li class="nav-item px-3">
               <a class="nav-link" href="index.html">Home</a>
             </li>
@@ -154,7 +58,9 @@
 
             <li class="nav-item">
               <a class="nav-link" href="Login.html">
-                <button type="button" class="btn btn-primary">Login</button></a
+                <button type="button" class="btn btn-primary logOut">
+                  Log out
+                </button></a
               >
             </li>
           </ul>
@@ -230,36 +136,46 @@
             >
               <!--------------------------------- posts ..............................-->
               <!---- photos ---->
-              <div class="mt-5 text-muted" id="photos"><h3>Photos</h3></div>
-              <hr class="text-muted" />
-              <div class="row row-cols-12 row-cols-md-12 gap-2">
-                <div class="col">
-                  <div class="">
-                    <img
-                      src="https://source.unsplash.com/collection/happy-people"
-                      class="card-img-top"
-                      alt="photo"
-                      style="max-width: 150px; height: 150px; object-fit: cover"
-                    />
+
+              <div class="bg-white p-3 mt-3 rounded border shadow">
+                <h5>Update your Post</h5>
+                <form class="row g-3" id="updatePost">
+                  <div class="col-12">
+                    <label for="" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="title" />
                   </div>
-                </div>
-                <div class="col">
-                  <img
-                    src="https://source.unsplash.com/collection/happy-people"
-                    class="card-img-top"
-                    style="max-width: 150px; height: 150px; object-fit: cover"
-                    alt="photo"
-                  />
-                </div>
-                <div class="col">
-                  <img
-                    src="https://source.unsplash.com/collection/happy-people"
-                    class="card-img-top"
-                    alt="photo"
-                    style="max-width: 150px; height: 150px; object-fit: cover"
-                  />
-                </div>
+                  <div class="col-12">
+                    <label for="" class="form-label">Tags</label>
+                    <input type="text" class="form-control" name="tags" />
+                  </div>
+                  <div class="col-12">
+                    <label for="" class="form-label">Body text</label>
+                    <input type="text" class="form-control" name="body" />
+                  </div>
+
+                  <div class="col-12">
+                    <label for="" class="form-label">Media</label>
+                    <input type="url" class="form-control" name="media" />
+                  </div>
+
+                  <div class="col-12 mb-5 button">
+                    <button type="submit" class="btn btn-primary">
+                      update post
+                    </button>
+                  </div>
+                </form>
               </div>
+            </div>
+          </div>
+          <div class="bg-white p-3 mt-3 rounded border shadow">
+            <h5>Contact</h5>
+            <hr class="mb-3" />
+            <div class="contactsList d-flex justify-content-between"></div>
+            <div
+              class="d-flex flex-column justify-content-center"
+              style="padding-top: 60px; width: 100%"
+            >
+              <!----------------------------- contacts -------------------------------------------->
             </div>
           </div>
           <!---------------------------create post----------------------->
@@ -269,46 +185,8 @@
             class="d-flex flex-column justify-content-center"
             style="padding-top: 60px; width: 100%"
           >
-            <div class="bg-white p-3 mt-3 rounded border shadow">
-              <h5>Update your Post</h5>
-              <form class="row g-3" id="updatePost">
-                <div class="col-12">
-                  <label for="" class="form-label">Title</label>
-                  <input type="text" class="form-control" name="title" />
-                </div>
-                <div class="col-12">
-                  <label for="" class="form-label">Tags</label>
-                  <input type="text" class="form-control" name="tags" />
-                </div>
-                <div class="col-12">
-                  <label for="" class="form-label">Body text</label>
-                  <input type="text" class="form-control" name="body" />
-                </div>
-
-                <div class="col-12">
-                  <label for="" class="form-label">Media</label>
-                  <input type="url" class="form-control" name="media" />
-                </div>
-
-                <div class="col-12 mb-5 button">
-                  <button type="submit" class="btn btn-primary">
-                    update post
-                  </button>
-                </div>
-              </form>
-            </div>
             <!----------------------------- contacts -------------------------------------------->
-            <div class="bg-white p-3 mt-3 rounded border shadow">
-              <h5>Contact</h5>
-              <hr class="mb-3" />
-              <div class="contactsList d-flex justify-content-between"></div>
-              <div
-                class="d-flex flex-column justify-content-center"
-                style="padding-top: 60px; width: 100%"
-              >
-                <!----------------------------- contacts -------------------------------------------->
-              </div>
-            </div>
+
             <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                 POSTS
     ////////////////////////////////////////////////////////////////////////////////////////////////////////-->
@@ -317,7 +195,11 @@
             <div class="bg-white p-4 rounded shadow mt-3">
               <div class="d-flex justify-content-end">
                 <!-- icon -->
-                <button type="button" class="btn btn-primary postDeleteButton">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="postDeleteButton"
+                >
                   Delete Post
                 </button>
               </div>
@@ -333,11 +215,10 @@
       type="module"
       src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     ></script>
-    <script type="module" src="/js/contacts.mjs"></script>
-
-    <script type="module" src="/js/api/posts/removePost.mjs"></script>
 
     <script type="module" src="./js/api/profile/singleProfile.mjs"></script>
-    <!-- <script type="module" src="./js/api/posts/update.mjs"></script> -->
+    <script type="module" src="/js/api/posts/removePost.mjs"></script>
+    <script type="module" src="/js/contacts.mjs"></script>
+    <script type="module" src="/js/api/auth/logOut.mjs"></script>
   </body>
 </html>

@@ -1,6 +1,8 @@
 import { authFetch } from "../authFetch.mjs";
 import { postsApi } from "../fetchApi.mjs";
 import { dateOptions as dateFormate } from "../../component/dateConverter.mjs";
+import { load } from "../localStorage.mjs";
+const banner = load("banner");
 //import { removePost } from "../posts/removePost.mjs";
 
 const profileInput = document.querySelector(".profileInput");
@@ -21,7 +23,7 @@ export async function getSinglePost() {
     const response = await authFetch(getPostApi);
     const data = await response.json();
 
-    console.log(data.id);
+    //console.log(data.id);
 
     singleProfile(data);
   } catch (error) {
@@ -150,11 +152,7 @@ export async function getSinglePost() {
     profileInput.innerHTML += `
                             <div class="container ">
                                 <img
-                                src="${
-                                  result.media
-                                    ? result.media
-                                    : "images/cover.jpg"
-                                }"
+                                src="${banner ? banner : "images/cover.jpg"}"
                                 class="d-block mx-auto shadow rounded"
                                 style="width: 100%; height: 300px; object-fit: cover"
                                 />

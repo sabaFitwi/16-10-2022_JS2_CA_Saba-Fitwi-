@@ -1,10 +1,7 @@
 //import { updatePostApi } from "./fetchApi.mjs";
 import * as storage from "../localStorage.mjs";
 import { authFetch } from "../authFetch.mjs";
-
-//import { getProfile } from "./profilePost.mjs";
 import { viewAllProfiles } from "./getProfile.mjs";
-
 import { load } from "../localStorage.mjs";
 import { profileApi } from "../fetchApi.mjs";
 
@@ -13,6 +10,7 @@ async function setUpdateProfile() {
 
   if (form) {
     const { name, email, avatar, banner } = load("user");
+
     form.name.value = name;
     form.email.value = email;
 
@@ -58,6 +56,6 @@ async function update(profileData) {
   });
   const result = await response.json();
   storage.save("banner", result.banner);
-
+  location.reload();
   return result;
 }

@@ -4,7 +4,9 @@ const form = document.querySelector("#registerForm");
 /**
  * submit register form data.
  * @param {Event} submit form submission
+ 
  */
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const form = event.target;
@@ -38,6 +40,7 @@ form.addEventListener("submit", (event) => {
     const result = await response.json();
 
     alert("you are registered");
+    location.href = "./login.html";
 
     return result;
   }

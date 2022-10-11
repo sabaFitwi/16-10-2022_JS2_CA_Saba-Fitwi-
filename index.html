@@ -108,7 +108,9 @@
 
             <li class="nav-item">
               <a class="nav-link" href="login.html">
-                <button type="button" class="btn btn-primary">Login</button></a
+                <button type="button" class="btn btn-primary logOut">
+                  Log out
+                </button></a
               >
             </li>
           </ul>
@@ -280,9 +282,12 @@
               </a>
 
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="#">week</a></li>
-                <li><a class="dropdown-item" href="#">2weeks</a></li>
-                <li><a class="dropdown-item" href="#">older</a></li>
+                <li>
+                  <a class="dropdown-item" id="filterButtonOldDate">oldest</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" id="filterButtonNewDate">newest</a>
+                </li>
               </ul>
             </div>
             <div class="bg-white p-3 mt-3 rounded border shadow">
@@ -307,5 +312,6 @@
     <script type="module" src="/js/api/posts/createPost.mjs"></script>
     <script type="module" src="/js/api/profile/avatarProfile.mjs"></script>
     <script type="module" src="/js/contacts.mjs"></script>
+    <script type="module" src="/js/api/auth/logOut.mjs"></script>
   </body>
 </html>

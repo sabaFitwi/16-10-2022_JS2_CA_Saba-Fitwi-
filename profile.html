@@ -58,7 +58,9 @@
 
             <li class="nav-item">
               <a class="nav-link" href="Login.html">
-                <button type="button" class="btn btn-primary">Login</button></a
+                <button type="button" class="btn btn-primary logOut">
+                  Log out
+                </button></a
               >
             </li>
           </ul>
@@ -70,21 +72,7 @@
                                                  BANNER SECTION
     ////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
-    <header>
-      <div class="container">
-        <div class="banner"></div>
-
-        <!-- <img
-          src="images/cover.jpg"
-          class="d-block mx-auto shadow rounded"
-          style="width: 100%; height: 300px; object-fit: cover"
-        /> -->
-      </div>
-
-      <div
-        class="position-absolute top-80 start-50 translate-middle d-flex flex-column align-items-center profileInput"
-      ></div>
-    </header>
+    <header class="profileInput"></header>
     <div class="container shadow">
       <ul class="d-flex flex-column flex-lg-row mt-5 pt-3 pb-5 mb-2">
         <!---------  profile detail------------ -->
@@ -138,6 +126,7 @@
     <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                  MAIN SECTION
     ////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 ps-4">
@@ -346,62 +335,6 @@
             class="d-flex flex-column justify-content-center"
             style="padding-top: 60px; width: 100%"
           >
-            <!-- <form
-              class="bg-white p-3 mt-3 rounded border shadow"
-              id="updatePosts"
-            >
-              <h5>Update Post</h5>
-              <hr />
-              <div class="d-flex" type="button">
-                <div class="p-1">
-                  <img
-                    src="images/profile.jpg"
-                    alt="avatar"
-                    class="rounded-circle me-2 avatar-image"
-                  />
-                </div>
-                <input
-                  type="text"
-                  name="title"
-                  class="form-control border-1 bg-gray pointer"
-                  placeholder="create your post, saba?"
-                />
-              </div>
-              <textarea
-                type="text"
-                id="postBody"
-                name="body"
-                class="form-control mt-3 border-1 bg-gray pointer"
-                placeholder="Add yor post/photos/videos"
-              ></textarea>
-
-              <div
-                class="mx-3 d-flex flex-row justify-content-end"
-                type="button"
-              >
-                <label for="file-input">
-                  <i
-                    class="fas fa-photo-video me-2 text-success"
-                    style="cursor: pointer"
-                  ></i>
-                </label>
-
-                <input
-                  id="file-input"
-                  type="url"
-                  name="media"
-                  style="display: non"
-                  class="form-control mt-3 border-1 bg-gray pointer"
-                />
-              </div>
-
-              <hr />
-              <div class="mx-3" type="button">
-                <button type="submit" class="btn btn-primary navColor w-100">
-                  Update Post
-                </button>
-              </div>
-            </form> -->
             <!----------------------------- contacts -------------------------------------------->
             <div class="bg-white p-3 mt-3 rounded border shadow">
               <h5>Contact</h5>
@@ -411,6 +344,7 @@
                 style="z-index: -100"
               ></div>
             </div>
+
             <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                 POSTS
     ////////////////////////////////////////////////////////////////////////////////////////////////////////-->
@@ -427,12 +361,12 @@
       src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     ></script>
     <script type="module" src="/js/api/profile/profilePost.mjs"></script>
-    <script type="module" src="/js/api/posts/removePost.mjs"></script>
 
     <script type="module" src="/js/contacts.mjs"></script>
-
     <script type="module" src="/js/api/posts/update.mjs"></script>
     <script type="module" src="/js/api/profile/editProfile.mjs"></script>
-    <script type="module" src="/js/api/profile/bannerProfile.mjs"></script>
+
+    <script type="module" src="/js/api/auth/logOut.mjs"></script>
+    <script type="module" src="/js/api/posts/removePost.mjs"></script>
   </body>
 </html>
