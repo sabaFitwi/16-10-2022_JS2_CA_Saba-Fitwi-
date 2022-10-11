@@ -203,7 +203,7 @@ async function viewAllPosts() {
 
   /**
    *uses the input value to filter the user by its title and name
-   * @param {string} event
+   * @param {keyup} event
    */
 
   searchInput.addEventListener("keyup", (event) => {
@@ -214,6 +214,41 @@ async function viewAllPosts() {
         user.title.toLowerCase().startsWith(inputValue) ||
         user.author.name.toLowerCase().startsWith(inputValue)
       ) {
+        return true;
+      }
+    });
+    createFeed.innerHTML = getAllPosts(inputResult);
+
+    getAllPosts(inputResult);
+    console.log(inputResult);
+  });
+
+  //filter by oldest and newest date
+  const filterButtonOldDate = document.querySelector("#filterButtonOldDate");
+
+  filterButtonOldDate.addEventListener("click", (event) => {
+    event.target;
+
+    const inputResult = data.filter((user) => {
+      if (user.created <= "2022-10-11T10:24:19.245Z") {
+        return true;
+      }
+    });
+    createFeed.innerHTML = getAllPosts(inputResult);
+
+    getAllPosts(inputResult);
+    console.log(inputResult);
+  });
+
+  //filter by newest date and newest date
+
+  const filterButtonNewDate = document.querySelector("#filterButtonNewDate");
+
+  filterButtonNewDate.addEventListener("click", (event) => {
+    event.target;
+
+    const inputResult = data.filter((user) => {
+      if (user.created >= "2022-10-11T10:24:19.245Z") {
         return true;
       }
     });
