@@ -15,5 +15,5 @@ export async function viewSinglePost(id) {
 
   const response = await authFetch(getPostApi);
   const result = await response.json();
-  console.log(result);
+  return result;
 }

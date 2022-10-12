@@ -26,7 +26,7 @@ async function viewAllPosts() {
     const response = await authFetch(postURL);
     data = await response.json();
 
-    //console.log(data);
+    console.log(data);
     getAllPosts(data);
   } catch (error) {
     createFeed.innerHTML = displayError("An error occurred. Please try again");
@@ -130,27 +130,7 @@ async function viewAllPosts() {
                           >
                             <hr />
                             <div class="accordion-body">
-                              <!-------------- comment 1  ------------->
-                              <div class="d-flex align-items-center my-1">
-                                <img
-                                  src="https://source.unsplash.com/collection/happy-people"
-                                  alt="avatar"
-                                  class="rounded-circle me-2"
-                                  style="
-                                    width: 40px;
-                                    height: 40px;
-                                    object-fit: cover;
-                                  "
-                                />
-                                <!-- comment text -->
-                                <div class="p-3 rounded comment__input w-100">
-                                  <p class="fw-bold m-0">John</p>
-                                  <p class="m-0 fs-7 bg-gray p-2 rounded">
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit.
-                                  </p>
-                                </div>
-                              </div>
+                            
                               <!--------------------------- comment 2----------------------->
                               <div class="d-flex align-items-center my-1">
                                 <img
@@ -175,7 +155,7 @@ async function viewAllPosts() {
                               <form class="d-flex my-1">
                                 <div>
                                   <img
-                                    src="https://source.unsplash.com/collection/happy-people"
+                                    src="${post.author.avatar}"
                                     alt="avatar"
                                     class="rounded-circle me-2 avatar-image"
 
@@ -183,7 +163,7 @@ async function viewAllPosts() {
                                 </div>
                                 <!-- input -->
                                 <input
-                                  type="text"
+                                  type="submit"
                                   class="form-control border-0 rounded-pill bg-gray"
                                   placeholder="Write a comment"
                                 />
@@ -223,6 +203,14 @@ async function viewAllPosts() {
     console.log(inputResult);
   });
 
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
+  const week = day * 7;
+  const fortnight = day * 14;
+
+  const today = new Date();
   //filter by oldest and newest date
   const filterButtonOldDate = document.querySelector("#filterButtonOldDate");
 
@@ -230,7 +218,7 @@ async function viewAllPosts() {
     event.target;
 
     const inputResult = data.filter((user) => {
-      if (user.created <= "2022-10-11T10:24:19.245Z") {
+      if (user.created <= new Date(today - week)) {
         return true;
       }
     });
@@ -248,7 +236,7 @@ async function viewAllPosts() {
     event.target;
 
     const inputResult = data.filter((user) => {
-      if (user.created >= "2022-10-11T10:24:19.245Z") {
+      if (user.created >= week) {
         return true;
       }
     });

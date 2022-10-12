@@ -15,5 +15,5 @@ export async function viewSingleProfile(name) {
 
   const response = await authFetch(getProfileApi);
   const result = await response.json();
-  console.log(result);
+  return result;
 }

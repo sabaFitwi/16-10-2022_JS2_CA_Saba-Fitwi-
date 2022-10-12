@@ -1,6 +1,5 @@
 import { load } from "../localStorage.mjs";
 const { avatar, name } = load("user");
-console.log(load);
 
 const profileAvatar = document.querySelector(".profileAvatar");
 profileAvatar.innerHTML += `

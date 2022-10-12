@@ -17,7 +17,7 @@ const params = new URLSearchParams(queryString);
 const id = params.get("id");
 console.log(id);
 
-async function getSinglePost() {
+export async function getSinglePost() {
   try {
     const getPostApi =
       postsApi + `/${id}` + "?_author=true&_comments=true&_reactions=true";

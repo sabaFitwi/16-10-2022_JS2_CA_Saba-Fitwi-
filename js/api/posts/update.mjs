@@ -1,7 +1,7 @@
 import { authFetch } from "../authFetch.mjs";
 import { postsApi } from "../fetchApi.mjs";
 //import { viewAllPosts, viewSinglePost } from "../posts/getPost.mjs";
-import { getSinglePost } from "../profile/singleProfile.mjs";
+import { getSinglePost } from "./singlePost.mjs";
 
 export async function setUpdate() {
   const form = document.querySelector("#updatePost");
@@ -16,7 +16,6 @@ export async function setUpdate() {
     form.title.value = post.title;
     form.body.value = post.body;
     form.media.value = post.media;
-    form.media.tags = post.tags;
 
     /**
      * Handles the update post form .
@@ -31,11 +30,10 @@ export async function setUpdate() {
         title: form.title.value,
         media: form.media.value,
         body: form.body.value,
-        tags: form.tags.value,
       };
       postData.id = id;
       update(postData.id);
-      location.reload();
+      //location.reload();
       console.log(postData.id);
     });
   }
