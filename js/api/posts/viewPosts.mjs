@@ -76,12 +76,12 @@ async function viewAllPosts() {
                       </p>
 
                       <img
-                        src="${post.media}
+                        src="${post.media}"
                         alt="pic"
                         id="post-image"
                         class="img-fluid rounded post-image"
                        />
-                    // <p>${post.tags}</p>
+                     <p>${post.tags}</p>
 
                     </div>
 
