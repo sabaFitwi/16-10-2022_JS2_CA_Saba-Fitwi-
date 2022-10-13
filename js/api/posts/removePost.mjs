@@ -25,7 +25,7 @@ async function removePost(id) {
     method: "delete",
   });
   const result = await response.json();
-  console.log(result);
+  return result;
 }
 //console.log("hihi");
 setRemoveListener();

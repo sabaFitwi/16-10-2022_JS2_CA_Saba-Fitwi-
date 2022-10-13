@@ -28,7 +28,7 @@
       class="navbar navbar-expand-lg navbar-dark bg-white navColor shadow fixed-top"
     >
       <div class="container">
-        <a class="navbar-brand" href="/post/index.html">
+        <a class="navbar-brand" href="home.html">
           <h1 class="text-white">Music Media</h1>
         </a>
         <button
@@ -48,7 +48,7 @@
         >
           <ul class="navbar-nav align-items-center">
             <li class="nav-item px-3">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="home.html">Home</a>
             </li>
             <li class="nav-item px-3">
               <a class="nav-link active" aria-current="page" href="profile.html"
@@ -57,7 +57,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="login.html">
+              <a class="nav-link" href="index.html">
                 <button type="button" class="btn btn-primary logOut">
                   Log out
                 </button></a
@@ -144,10 +144,10 @@
                     <label for="" class="form-label">Title</label>
                     <input type="text" class="form-control" name="title" />
                   </div>
-                  <!-- <div class="col-12">
+                  <div class="col-12">
                     <label for="" class="form-label">Tags</label>
                     <input type="text" class="form-control" name="tags" />
-                  </div> -->
+                  </div>
                   <div class="col-12">
                     <label for="" class="form-label">Body text</label>
                     <input type="text" class="form-control" name="body" />
@@ -217,6 +217,8 @@
     ></script>
 
     <script type="module" src="/js/api/profile/singleProfile.mjs"></script>
+
+    <script type="module" src="/js/api/posts/update.mjs"></script>
     <script type="module" src="/js/api/posts/removePost.mjs"></script>
     <script type="module" src="/js/contacts.mjs"></script>
     <script type="module" src="/js/api/auth/logOut.mjs"></script>
