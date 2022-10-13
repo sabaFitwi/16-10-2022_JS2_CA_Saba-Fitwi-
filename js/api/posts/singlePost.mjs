@@ -2,6 +2,8 @@ import { authFetch } from "../authFetch.mjs";
 import { postsApi } from "../fetchApi.mjs";
 
 import { dateOptions as dateFormate } from "../../component/dateConverter.mjs";
+import { load } from "../localStorage.mjs";
+const banner = load("banner");
 
 const profileInput = document.querySelector(".profileInput");
 const singlePost = document.querySelector(".singleProfilePost");

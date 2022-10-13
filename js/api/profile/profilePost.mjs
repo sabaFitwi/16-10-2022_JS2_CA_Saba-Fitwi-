@@ -11,13 +11,14 @@ const profileFeed = document.querySelector(".profileFeed");
 export async function getProfile() {
   const { avatar, name } = load("user");
   const banner = load("banner");
+  console.log(banner);
   try {
     const response = await authFetch(
       profileApi + `/${name}` + "?_posts=true&_following=true&_followers=true"
     );
     const data = await response.json();
 
-    console.log(data);
+    //console.log(data);
     myProfile(data.posts);
   } catch (error) {
     console.log("error");
@@ -179,7 +180,7 @@ export async function getProfile() {
       profileInput.innerHTML += `
       <div class="container ">
           <img
-          src="${banner}"
+          src="${banner ? banner : "/images/M.jpg"}"
           class="d-block mx-auto shadow rounded"
           style="width: 100%; height: 300px; object-fit: cover"
           />
@@ -188,7 +189,7 @@ export async function getProfile() {
       <div class="position-absolute top-80 start-50 translate-middle d-flex flex-column align-items-center "
   >
        <img
-       src="${avatar ? avatar : "images/M.jpg"}"
+       src="${avatar ? avatar : "/images/M.jpg"}"
           alt="avatar"
           class="rounded-circle border-shadow-5 me-2"
            style="width: 100px; height: 100px; object-fit: cover"

@@ -203,47 +203,35 @@ async function viewAllPosts() {
     console.log(inputResult);
   });
 
-  const second = 1000;
-  const minute = second * 60;
-  const hour = minute * 60;
-  const day = hour * 24;
-  const week = day * 7;
-  const fortnight = day * 14;
-
-  const today = new Date();
-  //filter by oldest and newest date
+  //filter by oldest and newest post of the 100 posts
   const filterButtonOldDate = document.querySelector("#filterButtonOldDate");
 
   filterButtonOldDate.addEventListener("click", (event) => {
     event.target;
 
-    const inputResult = data.filter((user) => {
-      if (user.created <= new Date(today - week)) {
+    const inputResult = data.filter((user, index) => {
+      if (index >= 50) {
         return true;
       }
     });
     createFeed.innerHTML = getAllPosts(inputResult);
 
     getAllPosts(inputResult);
-    console.log(inputResult);
   });
-
-  //filter by newest date and newest date
-
+  // filtered by the newest post
   const filterButtonNewDate = document.querySelector("#filterButtonNewDate");
 
   filterButtonNewDate.addEventListener("click", (event) => {
     event.target;
 
-    const inputResult = data.filter((user) => {
-      if (user.created >= week) {
+    const inputResult = data.filter((user, index) => {
+      if (index <= 50) {
         return true;
       }
     });
     createFeed.innerHTML = getAllPosts(inputResult);
 
     getAllPosts(inputResult);
-    console.log(inputResult);
   });
 }
 

@@ -34,7 +34,7 @@ async function getContact() {
               <a href="singlePost.html?id=${user.id}" class="contactsProfile">
                 <img
                   src="${
-                    user.author.avatar ? user.author.avatar : "/images/M.jpg"
+                    user.author.avatar ? user.author.avatar : "images/M.jpg"
                   }"
                   alt=" "
                   class="rounded-circle me-2 avatar-image"

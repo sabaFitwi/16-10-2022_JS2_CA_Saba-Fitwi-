@@ -8,13 +8,5 @@ logOut.addEventListener("click", () => {
   remove("banner");
   remove("token");
 
-  storage.storage.location.href = "./login.html";
+  storage.location.href = "./index.html";
 });
-//}
-
-// const removeUser = remove("user");
-// const removeBanner = remove("banner");
-// const removeToken = remove("token");
-// removeUser;
-// removeBanner;
-// removeToken;
