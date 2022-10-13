@@ -6,10 +6,8 @@ import { dateOptions as dateFormate } from "../../component/dateConverter.mjs";
 const profileInput = document.querySelector(".profileInput");
 const singlePost = document.querySelector(".singleProfilePost");
 /**
- * Checks if a query string is present to define a .
- * for profile page
- * @param {Class} API insert defined handleAPI class into this.
- * @returns {String} Username returned for fetch request.
+ * Checks if a query string is present to view the posts by Id
+ *
  */
 //..................................................................................//
 const queryString = document.location.search;
@@ -17,7 +15,7 @@ const params = new URLSearchParams(queryString);
 const id = params.get("id");
 console.log(id);
 
-async function getSinglePost() {
+export async function getSinglePost() {
   try {
     const getPostApi =
       postsApi + `/${id}` + "?_author=true&_comments=true&_reactions=true";
@@ -25,7 +23,7 @@ async function getSinglePost() {
     const response = await authFetch(getPostApi);
     const data = await response.json();
 
-    console.log(data);
+    console.log(data.id);
     singleProfile(data);
   } catch (error) {
     console.log("error");

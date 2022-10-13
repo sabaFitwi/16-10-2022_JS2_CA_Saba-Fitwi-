@@ -1,7 +1,7 @@
 import { authFetch } from "../authFetch.mjs";
 import { postsApi } from "../fetchApi.mjs";
-//import { viewAllPosts, viewSinglePost } from "../posts/getPost.mjs";
-import { getSinglePost } from "../profile/singleProfile.mjs";
+import { viewAllPosts, viewSinglePost } from "../posts/getPost.mjs";
+import { getSinglePost } from "./singlePost.mjs";
 
 export async function setUpdate() {
   const form = document.querySelector("#updatePost");
@@ -11,12 +11,12 @@ export async function setUpdate() {
   const id = params.get("id");
   console.log(id);
   if (form) {
-    const post = await getSinglePost(id);
+    const post = await viewSinglePost(id);
 
     form.title.value = post.title;
     form.body.value = post.body;
     form.media.value = post.media;
-    form.media.tags = post.tags;
+    form.tags.value = post.tags;
 
     /**
      * Handles the update post form .
@@ -34,9 +34,8 @@ export async function setUpdate() {
         tags: form.tags.value,
       };
       postData.id = id;
-      update(postData.id);
+      update(postData);
       location.reload();
-      console.log(postData.id);
     });
   }
 }
@@ -49,11 +48,12 @@ export async function update(postData) {
 
   const updatePostApi1 = postsApi + "/" + `${postData.id}`;
 
+  console.log(updatePostApi1);
+
   const response = await authFetch(updatePostApi1, {
     method: "PUT",
     body: JSON.stringify(postData),
   });
   const result = await response.json();
   return result;
-  //console.log(result);
 }

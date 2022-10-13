@@ -31,7 +31,7 @@ async function getContact() {
               data-bs-content="${user.author.name.replace("_", " ")}"
               data-bs-placement="top"
             >
-              <a href="/singlePost.html?${user.id}" class="contactsProfile">
+              <a href="singlePost.html?id=${user.id}" class="contactsProfile">
                 <img
                   src="${
                     user.author.avatar ? user.author.avatar : "/images/M.jpg"
@@ -43,7 +43,7 @@ async function getContact() {
             </span>
           </div>
        `;
-          console.log(user.id);
+
           var popoverList1 = [].slice.call(
             document.querySelectorAll('[data-bs-toggle = "popover"]')
           );

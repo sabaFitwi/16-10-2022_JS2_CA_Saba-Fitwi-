@@ -1,16 +1,18 @@
 import { authFetch } from "../authFetch.mjs";
 import { postsApi } from "../fetchApi.mjs";
 
+//delete a post
 const postDelete = document.querySelector("#postDeleteButton");
-
-postDelete.addEventListener("click", () => {
-  const queryString = document.location.search;
-  const parameters = new URLSearchParams(queryString);
-  const id = parameters.get("id");
-  console.log(id);
-  removePost(id);
-  window.location.reload();
-});
+function setRemoveListener() {
+  postDelete.addEventListener("click", () => {
+    const queryString = document.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const id = parameters.get("id");
+    console.log(id);
+    removePost(id);
+    location.reload();
+  });
+}
 
 async function removePost(id) {
   if (!id) {
@@ -23,6 +25,7 @@ async function removePost(id) {
     method: "delete",
   });
   const result = await response.json();
-  console.log(result);
+  return result;
 }
 //console.log("hihi");
+setRemoveListener();

@@ -23,8 +23,6 @@ export async function getSinglePost() {
     const response = await authFetch(getPostApi);
     const data = await response.json();
 
-    //console.log(data.id);
-
     singleProfile(data);
   } catch (error) {
     console.log("error");
