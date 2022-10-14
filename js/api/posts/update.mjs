@@ -35,7 +35,6 @@ export async function setUpdate() {
       };
       postData.id = id;
       update(postData);
-      location.reload();
     });
   }
 }
