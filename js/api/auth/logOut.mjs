@@ -3,7 +3,7 @@ import * as storage from "../localStorage.mjs";
 import { remove } from "../localStorage.mjs";
 
 //export function logOut() {
-logOut.addEventListener("click", () => {
+logOut?.addEventListener("click", () => {
   remove("user");
   remove("banner");
   remove("token");
