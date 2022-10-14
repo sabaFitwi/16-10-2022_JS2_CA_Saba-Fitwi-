@@ -1,16 +1,16 @@
 import { authFetch } from "../authFetch.mjs";
 import { postsApi } from "../fetchApi.mjs";
-import { id } from "../profile/singleProfile.mjs";
 
-//delete a post
 const postDelete = document.querySelector("#postDeleteButton");
 
 postDelete.addEventListener("click", () => {
+  const queryString = document.location.search;
+  const params = new URLSearchParams(queryString);
+  const id = params.get("id");
   removePost(id);
-  location.reload();
 });
 
-export async function removePost(id) {
+async function removePost(id) {
   if (!id) {
     throw new Error("remove requires a postID");
   }
