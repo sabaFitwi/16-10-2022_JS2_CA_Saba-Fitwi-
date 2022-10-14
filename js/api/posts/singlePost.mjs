@@ -2,6 +2,8 @@ import { authFetch } from "../authFetch.mjs";
 import { postsApi } from "../fetchApi.mjs";
 
 import { dateOptions as dateFormate } from "../../component/dateConverter.mjs";
+import { load } from "../localStorage.mjs";
+const banner = load("banner");
 
 const profileInput = document.querySelector(".profileInput");
 const singlePost = document.querySelector(".singleProfilePost");
@@ -23,7 +25,7 @@ export async function getSinglePost() {
     const response = await authFetch(getPostApi);
     const data = await response.json();
 
-    console.log(data.id);
+    // console.log(data.id);
     singleProfile(data);
   } catch (error) {
     console.log("error");
@@ -116,13 +118,8 @@ export async function getSinglePost() {
                       <img
                         src="https://source.unsplash.com/collection/happy-people"
                         alt="avatar"
-                        class="rounded-circle me-2"
-                        style="
-                          width: 38px;
-                          height: 38px;
-                          object-fit: cover;
-                        "
-                      />
+                        class="rounded-circle me-2 avatar-image"
+                                             />
                       <!-- comment text -->
                       <div class="p-3 rounded comment__input w-100">
                         <!-- comment menu of author -->
@@ -164,28 +161,7 @@ export async function getSinglePost() {
                         </p>
                       </div>
                     </div>
-                    <!-- comment 2 -->
-                    <div class="d-flex align-items-center my-1">
-                      <!-- avatar -->
-                      <img
-                        src="https://source.unsplash.com/random/2"
-                        alt="avatar"
-                        class="rounded-circle me-2"
-                        style="
-                          width: 38px;
-                          height: 38px;
-                          object-fit: cover;
-                        "
-                      />
-                      <!-- comment text -->
-                      <div class="p-3 rounded comment__input w-100">
-                        <p class="fw-bold m-0">Jerry</p>
-                        <p class="m-0 fs-7 bg-gray p-2 rounded">
-                          Lorem ipsum dolor sit amet, consectetur
-                          adipiscing elit.
-                        </p>
-                      </div>
-                    </div>
+                   
                     <!-- create comment -->
                     <form class="d-flex my-1">
                       <!-- avatar -->
@@ -193,12 +169,8 @@ export async function getSinglePost() {
                         <img
                           src="https://source.unsplash.com/collection/happy-people"
                           alt="avatar"
-                          class="rounded-circle me-2"
-                          style="
-                            width: 38px;
-                            height: 38px;
-                            object-fit: cover;
-                          "
+                          class="rounded-circle me-2 avatar-image"
+                          
                         />
                       </div>
                       <!-- input -->

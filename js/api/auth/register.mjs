@@ -25,6 +25,8 @@ form.addEventListener("submit", (event) => {
    * @param {String} name name with alphabet number and underscore
    * @param {String} email -email with valid account
    * @param {String} password password with minimum of 8 characters
+   *  @param {String} avatar -only image url
+   * @param {String} banner only image url
    * @returns {Object} response object with a user information
    */
 
@@ -40,7 +42,7 @@ form.addEventListener("submit", (event) => {
     const result = await response.json();
 
     alert("you are registered");
-    location.href = "./login.html";
+    location.href = "/index.html";
 
     return result;
   }

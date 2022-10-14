@@ -11,7 +11,7 @@ const singlePost = document.querySelector(".singleProfile");
 //..................................................................................//
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
-const id = params.get("id");
+export const id = params.get("id");
 
 console.log(id);
 

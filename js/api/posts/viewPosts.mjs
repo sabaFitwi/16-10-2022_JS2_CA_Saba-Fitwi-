@@ -2,13 +2,17 @@ import { authFetch } from "../authFetch.mjs";
 import { postsApi } from "../fetchApi.mjs";
 import { displayError } from "../../component/displayError.mjs";
 import { dateOptions as dateFormat } from "../../component/dateConverter.mjs";
+import { load } from "../localStorage.mjs";
+// This  load will be used on the comment area
+const name = load("user").name;
+const avatar = load("user").avatar;
 
 const createFeed = document.querySelector(".create-feeds");
 
 const searchInput = document.querySelector("#search-input");
 
 /**
- * Get a post from the Api and render to the home page. *
+ * Get a post from the Api and render to the home page.
  * @param {Function} Function the function to get the post.
  *
  */
@@ -22,7 +26,8 @@ async function viewAllPosts() {
   const loaderButton = document.querySelector(".loaderButton");
   try {
     const postURL =
-      postsApi + "?_author=true&_comments=true&reactions=true&per_page=30";
+      postsApi +
+      "?_author=true&_comments=true&reactions=true&per_page=30&sort=created&sortOrder=desc";
     const response = await authFetch(postURL);
     data = await response.json();
 
@@ -131,23 +136,19 @@ async function viewAllPosts() {
                             <hr />
                             <div class="accordion-body">
                             
-                              <!--------------------------- comment 2----------------------->
+                              <!--------------------------- comment ----------------------->
                               <div class="d-flex align-items-center my-1">
                                 <img
-                                  src="https://source.unsplash.com/random/2"
+                                src="${avatar}"
                                   alt="avatar"
-                                  class="rounded-circle me-2"
-                                  style="
-                                    width: 40px;
-                                    height: 40px;
-                                    object-fit: cover;
-                                  "
+                                  class="rounded-circle me-2 avatar-image"
+                                  
                                 />
 
                                 <div class="p-3 rounded comment__input w-100">
-                                  <p class="fw-bold m-0">saba</p>
-                                  <p class="m-0 fs-7 bg-gray p-2 rounded">
-                                    This post is increadebly good.
+                                  <p class="fw-bold m-0"> ${name}</p>
+                                  <p class="m-0 fs-7 bg-gray p-2 rounded commentPostContainer">
+                                    
                                   </p>
                                 </div>
                               </div>
@@ -155,7 +156,7 @@ async function viewAllPosts() {
                               <form class="d-flex my-1">
                                 <div>
                                   <img
-                                    src="${post.author.avatar}"
+                                    src="${avatar}"
                                     alt="avatar"
                                     class="rounded-circle me-2 avatar-image"
 
@@ -163,7 +164,9 @@ async function viewAllPosts() {
                                 </div>
                                 <!-- input -->
                                 <input
-                                  type="submit"
+                                  id="commentInput"
+                                  type="text"
+                                  name="comment"
                                   class="form-control border-0 rounded-pill bg-gray"
                                   placeholder="Write a comment"
                                 />
@@ -203,47 +206,35 @@ async function viewAllPosts() {
     console.log(inputResult);
   });
 
-  const second = 1000;
-  const minute = second * 60;
-  const hour = minute * 60;
-  const day = hour * 24;
-  const week = day * 7;
-  const fortnight = day * 14;
-
-  const today = new Date();
-  //filter by oldest and newest date
+  //filter by oldest and newest post of the 100 posts
   const filterButtonOldDate = document.querySelector("#filterButtonOldDate");
 
   filterButtonOldDate.addEventListener("click", (event) => {
     event.target;
 
-    const inputResult = data.filter((user) => {
-      if (user.created <= new Date(today - week)) {
+    const inputResult = data.filter((user, index) => {
+      if (index >= 50) {
         return true;
       }
     });
     createFeed.innerHTML = getAllPosts(inputResult);
 
     getAllPosts(inputResult);
-    console.log(inputResult);
   });
-
-  //filter by newest date and newest date
-
+  // filtered by the newest post
   const filterButtonNewDate = document.querySelector("#filterButtonNewDate");
 
   filterButtonNewDate.addEventListener("click", (event) => {
     event.target;
 
-    const inputResult = data.filter((user) => {
-      if (user.created >= week) {
+    const inputResult = data.filter((user, index) => {
+      if (index <= 50) {
         return true;
       }
     });
     createFeed.innerHTML = getAllPosts(inputResult);
 
     getAllPosts(inputResult);
-    console.log(inputResult);
   });
 }
 
