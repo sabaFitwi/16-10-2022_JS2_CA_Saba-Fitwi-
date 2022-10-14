@@ -14,7 +14,9 @@ export async function getProfile() {
   console.log(banner);
   try {
     const response = await authFetch(
-      profileApi + `/${name}` + "?_posts=true&_following=true&_followers=true"
+      profileApi +
+        `/${name}` +
+        "?sort=created&sortOrder=asc&_posts=true&_following=true&_followers=true"
     );
     const data = await response.json();
 
