@@ -213,12 +213,31 @@
 
         <!--========================================= Timeline ===================================---->
         <div class="col-12 col-lg-5 pb-5">
-          <!--mobile view-->
-
           <div
             class="d-flex flex-column justify-content-center w-100 mx-auto"
             style="padding-top: 60px; max-width: 850px"
           >
+            <div class="dropdown mt-5">
+              <a
+                class="btn btn-secondary dropdown-toggle"
+                href="#"
+                role="button"
+                id="dropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Filter By Date
+              </a>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li>
+                  <a class="dropdown-item" id="filterButtonOldDate">oldest</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" id="filterButtonNewDate">newest</a>
+                </li>
+              </ul>
+            </div>
             <div class="d-block pt-2">
               <form class="bg-white p-3 mt-3 rounded border shadow post">
                 <h5>Create post</h5>
@@ -268,27 +287,6 @@
         <section class="col-12 col-lg-4" style="padding-top: 100px">
           <!--------------------------- Form to create a new post. --------------------------->
           <div class="fixed-right">
-            <div class="dropdown">
-              <a
-                class="btn btn-secondary dropdown-toggle"
-                href="#"
-                role="button"
-                id="dropdownMenuLink"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Filter By Date
-              </a>
-
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li>
-                  <a class="dropdown-item" id="filterButtonOldDate">oldest</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" id="filterButtonNewDate">newest</a>
-                </li>
-              </ul>
-            </div>
             <div class="bg-white p-3 mt-3 rounded border shadow">
               <h5>Contact</h5>
               <hr class="mb-3" />

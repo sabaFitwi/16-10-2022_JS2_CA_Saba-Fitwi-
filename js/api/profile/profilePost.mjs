@@ -14,9 +14,7 @@ export async function getProfile() {
   console.log(banner);
   try {
     const response = await authFetch(
-      profileApi +
-        `/${name}` +
-        "?sort=created&sortOrder=asc&_posts=true&_following=true&_followers=true"
+      profileApi + `/${name}` + "?_posts=true&_following=true&_followers=true"
     );
     const data = await response.json();
 
@@ -43,7 +41,7 @@ export async function getProfile() {
                 style="width: 38px; height: 38px; object-fit: cover"
               />
               <div >
-              <a href="singleProfile.html?id=${
+              <a href="single-profile.html?id=${
                 result.id
               }" class="m-0 fw-bold text-decoration-none">${name.replace(
           "_",
@@ -56,7 +54,7 @@ export async function getProfile() {
               </div>
             
             </div>
-            <a href="singleProfile.html?id=${
+            <a href="single-profile.html?id=${
               result.id
             }" class="d-flex justify-content-end">
             <!-- icon -->

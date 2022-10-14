@@ -27,7 +27,7 @@ async function viewAllPosts() {
   try {
     const postURL =
       postsApi +
-      "?_author=true&_comments=true&reactions=true&per_page=30&sort=created&sortOrder=desc";
+      "?_author=true&_comments=true&reactions=true&per_page=30&sort=created&sortOrder=desc&limit=200";
     const response = await authFetch(postURL);
     data = await response.json();
 
@@ -58,7 +58,7 @@ async function viewAllPosts() {
                         style="width: 40px; height: 40px; object-fit: cover"
                       />
                       <div>
-                      <a href="singlePost.html?id=${
+                      <a href="single-post.html?id=${
                         post.id
                       }" class="m-0 fw-bold text-decoration-none">${post.author.name.replace(
           "_",
@@ -199,11 +199,13 @@ async function viewAllPosts() {
       ) {
         return true;
       }
+      //else {
+      //return `<div class="danger">Search Not found</div>`;
+      //}
     });
     createFeed.innerHTML = getAllPosts(inputResult);
 
     getAllPosts(inputResult);
-    console.log(inputResult);
   });
 
   //filter by oldest and newest post of the 100 posts
@@ -213,7 +215,7 @@ async function viewAllPosts() {
     event.target;
 
     const inputResult = data.filter((user, index) => {
-      if (index >= 50) {
+      if (index <= 100) {
         return true;
       }
     });
@@ -228,7 +230,7 @@ async function viewAllPosts() {
     event.target;
 
     const inputResult = data.filter((user, index) => {
-      if (index <= 50) {
+      if (index >= 100) {
         return true;
       }
     });

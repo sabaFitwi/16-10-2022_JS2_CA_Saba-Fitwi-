@@ -42,7 +42,7 @@ export async function getSinglePost() {
                 style="width: 38px; height: 38px; object-fit: cover"
               />
               <div>
-              <a href="singleProfile.html?id=${
+              <a href="single-profile.html?id=${
                 result.id
               }" class="m-0 fw-bold text-decoration-none">${result.author.name.replace(
       "_",
