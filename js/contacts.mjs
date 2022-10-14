@@ -18,7 +18,7 @@ async function getContact() {
     if (users) {
       const usersMedia = users.filter((user) => user.author.avatar !== "");
 
-      usersMedia.map((user, index) => {
+      usersMedia.forEach((user, index) => {
         usersMedia.sort(() => 0.5 - Math.random()).slice(0);
         if (index <= 5) {
           contactList.innerHTML += `
@@ -31,7 +31,7 @@ async function getContact() {
               data-bs-content="${user.author.name.replace("_", " ")}"
               data-bs-placement="top"
             >
-              <a href="singlePost.html?id=${user.id}" class="contactsProfile">
+              <a href="single-post.html?id=${user.id}" class="contactsProfile">
                 <img
                   src="${
                     user.author.avatar ? user.author.avatar : "images/M.jpg"
