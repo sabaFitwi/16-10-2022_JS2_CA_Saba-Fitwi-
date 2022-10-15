@@ -6,7 +6,7 @@ import { authFetch } from "../authFetch.mjs";
  * @param {Event} form the form you submitting on the page
  * @param {Function} postData the function to create the post .
  */
-const form = document.querySelector(".post");
+const form = document.querySelector("#commentForm");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -14,19 +14,19 @@ form.addEventListener("submit", (event) => {
   const postData = {
     body: form.body.value,
   };
-  createPost(postData);
+  createComment(postData);
   //console.log(postData);
 });
 
-async function createPost(postData) {
+async function createComment(postData) {
   console.log(postData);
   const Url = postsApi + id + "/comment";
-  const response = await authFetch(postsApi, {
+  const response = await authFetch(Url, {
     method: "post",
     body: JSON.stringify(postData),
   });
   const result = await response.json();
-  location.reload();
+  //location.reload();
 
   //console.log(result);
   return result;

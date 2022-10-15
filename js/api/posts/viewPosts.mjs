@@ -208,7 +208,7 @@ async function viewAllPosts() {
     getAllPosts(inputResult);
   });
 
-  //filter by oldest and newest post of the 100 posts
+  //filter by oldest and newest post of the 200 posts
   const filterButtonOldDate = document.querySelector("#filterButtonOldDate");
 
   filterButtonOldDate.addEventListener("click", (event) => {

@@ -163,22 +163,32 @@ export async function getSinglePost() {
                     </div>
                    
                     <!-- create comment -->
-                    <form class="d-flex my-1">
+                    <form class="d-flex my-1" >
                       <!-- avatar -->
                       <div>
                         <img
-                          src="https://source.unsplash.com/collection/happy-people"
+                          src="${result.author.avatar}"
                           alt="avatar"
                           class="rounded-circle me-2 avatar-image"
                           
                         />
                       </div>
                       <!-- input -->
+                      <div class="col-10 d-flex">
+                      <div class="col-7">
                       <input
                         type="text"
-                        class="form-control border-0 rounded-pill bg-gray"
+                        class=" form-control border-0 rounded-pill bg-gray"
                         placeholder="Write a comment"
                       />
+                      </div>
+                      <div class="col-2 mb-5 button">                    
+                        <button type="submit" class="btn btn-primary">
+                      send
+                    </button>
+                  </div>
+                  </div>
+                      
                     </form>
                     <!-- end -->
                   </div>
