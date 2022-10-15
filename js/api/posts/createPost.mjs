@@ -18,7 +18,6 @@ form.addEventListener("submit", (event) => {
     body: form.body.value,
   };
   createPost(postData);
-  //console.log(postData);
 });
 
 async function createPost(postData) {
@@ -30,6 +29,5 @@ async function createPost(postData) {
   const result = await response.json();
   location.reload();
 
-  //console.log(result);
   return result;
 }

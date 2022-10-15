@@ -21,11 +21,10 @@ export async function getSinglePost() {
   try {
     const getPostApi =
       postsApi + `/${id}` + "?_author=true&_comments=true&_reactions=true";
-    console.log(getPostApi);
+
     const response = await authFetch(getPostApi);
     const data = await response.json();
 
-    // console.log(data.id);
     singleProfile(data);
   } catch (error) {
     console.log("error");

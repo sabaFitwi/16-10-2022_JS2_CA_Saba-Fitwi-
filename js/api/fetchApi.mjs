@@ -1,9 +1,8 @@
 import { social_API_URL as API } from "./constants.mjs";
 
 export const postsApi = API + "/posts";
-// export const createPostApi = API + "/posts";
+
 export const updatePostApi = API + "/posts/";
-// export const singleProfileApi = API + "/posts/";
 
 export const profileApi = API + "/profiles";
 export const profileUrl =

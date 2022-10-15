@@ -199,9 +199,6 @@ async function viewAllPosts() {
       ) {
         return true;
       }
-      //else {
-      //return `<div class="danger">Search Not found</div>`;
-      //}
     });
     createFeed.innerHTML = getAllPosts(inputResult);
 

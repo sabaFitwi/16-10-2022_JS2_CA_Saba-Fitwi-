@@ -1,7 +1,6 @@
 import { authFetch } from "../authFetch.mjs";
 import { postsApi } from "../fetchApi.mjs";
 import { viewSinglePost } from "../posts/getPost.mjs";
-//import { getSinglePost } from "./singlePost.mjs";
 
 export async function setUpdate() {
   const form = document.querySelector("#updatePost");
