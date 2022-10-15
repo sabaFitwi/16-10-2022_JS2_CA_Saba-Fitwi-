@@ -47,55 +47,13 @@
         >
           <ul class="navbar-nav align-items-center">
             <li>
-              <div
-                class="d-lg-none"
-                id="searchDropdowm"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                type="button"
-                data-bs-auto-close="outside"
-              >
-                <div
-                  class="input-group-text bg-gray border-0 rounded-pill"
-                  style="min-height: 40px"
-                >
-                  <i class="fas fa-search text-muted"></i>
-                </div>
-              </div>
-              <!-- desktop -->
-              <div
-                class="d-none d-lg-block float-lg-none"
-                id="searchDropdowm"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                type="button"
-                data-bs-auto-close="outside"
-              >
-                <button
-                  id="search-button"
-                  class="input-group-text bg-gray border-0 m-0 fs-7 text-muted"
-                >
-                  <i class="fas fa-search me-2 text-muted"></i>
-                  search
-                </button>
-              </div>
-
-              <!-------------- search dropdown ----------------->
-              <ul
-                class="dropdown-menu border-0 shadow p-3 overflow-auto searchWidth"
-                aria-labelledby="searchDropdowm"
-              >
-                <li>
-                  <input
-                    id="search-input"
-                    class="p-2 border-0 bg-gray col-12"
-                    type="search"
-                    class="dropdown-item ms-2"
-                    placeholder="write your search..."
-                    autofocus
-                  />
-                </li>
-              </ul>
+              <input
+                id="search-input"
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
             </li>
             <li class="nav-item px-3">
               <a class="nav-link active" aria-current="page" href="home.html"
