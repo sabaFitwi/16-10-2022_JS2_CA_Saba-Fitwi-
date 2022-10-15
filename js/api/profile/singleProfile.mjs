@@ -118,8 +118,7 @@ export async function getSinglePost() {
                   <div class="accordion-body">
                     <!-- comment 1 -->
                     
-                    <!-- create comment -->
-                    <form class="d-flex my-1">
+                    <div class="d-flex my-1" >
                       <!-- avatar -->
                       <div>
                         <img
@@ -127,17 +126,26 @@ export async function getSinglePost() {
                           alt="avatar"
                           class="rounded-circle me-2 avatar-image"
                           
-                          
                         />
                       </div>
                       <!-- input -->
+                      <form id="commentForm">
+                      <div class="col-10 d-flex">
+                      <div class="col-7">
                       <input
                         type="text"
-                        class="form-control border-0 rounded-pill bg-gray"
+                        class=" form-control border-0 rounded-pill bg-gray"
                         placeholder="Write a comment"
                       />
-                    </form>
-                    <!-- end -->
+                      </div>
+                      <div class="col-2 mb-5 button">                    
+                        <button type="submit" class="btn btn-primary">
+                      send
+                    </button>
+                  </div></form>
+                  </div>
+                      
+                    </div>
                   </div>
                 </div>
                 </div>
