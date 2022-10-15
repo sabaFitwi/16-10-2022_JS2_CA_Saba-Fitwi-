@@ -18,9 +18,9 @@ async function getContact() {
     if (users) {
       const usersMedia = users.filter((user) => user.author.avatar !== "");
 
-      usersMedia.forEach((user, index) => {
+      usersMedia.map((user, index) => {
         usersMedia.sort(() => 0.5 - Math.random()).slice(0);
-        if (index <= 5) {
+        if (index <= 6) {
           contactList.innerHTML += `
             <div>
             <span
