@@ -5,7 +5,8 @@ const contactList = document.querySelector(".contactsList");
 
 async function getContact() {
   try {
-    const postURL = postsApi + "?_author=true&_comments=true&reactions=true";
+    const postURL =
+      postsApi + "?_author=true&_comments=true&reactions=true&limit=200";
     const response = await authFetch(postURL);
     const data = await response.json();
 
@@ -31,11 +32,9 @@ async function getContact() {
               data-bs-content="${user.author.name.replace("_", " ")}"
               data-bs-placement="top"
             >
-              <a href="single-post.html?id=${user.id}" class="contactsProfile">
+              <a href="single-post.html?id=${user.id}" >
                 <img
-                  src="${
-                    user.author.avatar ? user.author.avatar : "images/M.jpg"
-                  }"
+                  src="${user.author.avatar}"
                   alt=" "
                   class="rounded-circle me-2 avatar-image"
                 />
