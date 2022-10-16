@@ -17,10 +17,14 @@ async function getContact() {
 
   function allContact(users) {
     if (users) {
-      const usersMedia = users.filter((user) => user.author.avatar !== "");
+      const usersMedia = users.filter(
+        (user, index) => user.author.avatar !== ""
+      );
+      console.log(usersMedia);
 
       usersMedia.map((user, index) => {
         usersMedia.sort(() => 0.5 - Math.random()).slice(0);
+
         if (index <= 5) {
           contactList.innerHTML += `
             <div>
@@ -34,7 +38,9 @@ async function getContact() {
             >
               <a href="single-post.html?id=${user.id}" >
                 <img
-                  src="${user.author.avatar}"
+                  src="${
+                    user.author.avatar ? user.author.avatar : "images/M.jpg"
+                  }"
                   alt=" "
                   class="rounded-circle me-2 avatar-image"
                 />

@@ -27,3 +27,7 @@ Social API routes require authorisation via JWT (JSON Web Tokens). You will need
 ### Development tasks
 
 https://trello.com/b/3dg4g4Kf/javascript-2
+
+### To star the server
+
+run`npm install`

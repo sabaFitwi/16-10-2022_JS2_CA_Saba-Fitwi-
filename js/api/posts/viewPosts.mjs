@@ -9,7 +9,7 @@ const avatar = load("user").avatar;
 
 const createFeed = document.querySelector(".create-feeds");
 
-const searchInput = document.querySelector("#search-input");
+const searchInput = document.querySelector(".search-input");
 
 /**
  * Get a post from the Api and render to the home page.
