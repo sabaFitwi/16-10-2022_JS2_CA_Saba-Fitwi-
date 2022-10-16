@@ -9,7 +9,7 @@ const avatar = load("user").avatar;
 
 const createFeed = document.querySelector(".create-feeds");
 
-const searchInput = document.querySelector("#search-input");
+const searchInput = document.querySelector(".search-input");
 
 /**
  * Get a post from the Api and render to the home page.
@@ -199,16 +199,13 @@ async function viewAllPosts() {
       ) {
         return true;
       }
-      //else {
-      //return `<div class="danger">Search Not found</div>`;
-      //}
     });
     createFeed.innerHTML = getAllPosts(inputResult);
 
     getAllPosts(inputResult);
   });
 
-  //filter by oldest and newest post of the 100 posts
+  //filter by oldest and newest post of the 200 posts
   const filterButtonOldDate = document.querySelector("#filterButtonOldDate");
 
   filterButtonOldDate.addEventListener("click", (event) => {
